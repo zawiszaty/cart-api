@@ -7,10 +7,6 @@ start:
 php:
 	docker-compose exec php bash
 
-.Phony: test
-test:
-	docker-compose exec -T php php composer.phar test
-
 .Phony: env
 env:
 	cp .env.dist .env
@@ -23,3 +19,24 @@ db:
 .Phony: stop
 stop:
 	docker-compose stop
+
+.Phony: cs_fix
+cs_fix:
+	docker-compose exec php bin/php-cs-fixer fix --allow-risky=yes
+
+.Phony: mutation
+mutation:
+	docker-compose exec php bin/infection.phar
+
+.Phony: test
+test:
+	docker-compose exec php bin/phpunit
+
+
+.Phony: phpstan
+phpstan:
+	docker-compose exec php bin/phpstan.phar analyse
+
+.Phony: psalm
+psalm:
+	docker-compose exec php bin/psalm.phar
