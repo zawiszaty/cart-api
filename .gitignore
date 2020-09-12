@@ -9,4 +9,5 @@
 /var/
 /vendor/
 .idea/
+.php_cs.cache
 ###< symfony/framework-bundle ###

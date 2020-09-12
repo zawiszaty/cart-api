@@ -5,7 +5,7 @@ start:
 
 .Phony: php
 php:
-	docker-compose exec php /bin/bash
+	docker-compose exec php bash
 
 .Phony: test
 test:
