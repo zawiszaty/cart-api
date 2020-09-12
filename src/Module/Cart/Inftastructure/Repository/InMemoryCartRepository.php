@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace App\Module\Cart\Inftastructure\Repository;
-
 
 use App\Module\Cart\Domain\Cart;
 use App\Module\Cart\Domain\CartId;

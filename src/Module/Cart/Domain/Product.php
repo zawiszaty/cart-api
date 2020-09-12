@@ -14,9 +14,9 @@ final class Product
 
     public function __construct(ProductId $productId, ProductName $productName, ProductPrice $price)
     {
-        $this->productId   = $productId;
+        $this->productId = $productId;
         $this->productName = $productName;
-        $this->price       = $price;
+        $this->price = $price;
     }
 
     public function getProductId(): ProductId

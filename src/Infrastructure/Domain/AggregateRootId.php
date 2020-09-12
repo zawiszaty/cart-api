@@ -23,9 +23,8 @@ class AggregateRootId
 
     public static function fromString(string $id): self
     {
-        if (Uuid::isValid($id))
-        {
-            return new self(Uuid::fromString($id));
+        if (Uuid::isValid($id)) {
+            return new static(Uuid::fromString($id));
         }
 
         throw new DomainException('Id is not a valid uuid');

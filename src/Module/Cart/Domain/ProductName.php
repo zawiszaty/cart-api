@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace App\Module\Cart\Domain;
-
 
 use App\Module\Cart\Domain\Exception\ProductException;
 
@@ -19,8 +17,7 @@ final class ProductName
 
     public static function fromString(string $name): ProductName
     {
-        if (false === empty($name))
-        {
+        if (false === empty($name)) {
             return new self($name);
         }
 

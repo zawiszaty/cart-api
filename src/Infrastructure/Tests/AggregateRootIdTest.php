@@ -41,7 +41,7 @@ final class AggregateRootIdTest extends TestCase
      */
     public function testWhenEquals($id, $secondId, $result): void
     {
-        $uuid       = AggregateRootId::fromString($id);
+        $uuid = AggregateRootId::fromString($id);
         $secondUuid = AggregateRootId::fromString($secondId);
 
         self::assertSame($result, $uuid->equals($secondUuid));

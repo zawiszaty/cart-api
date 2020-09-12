@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace App\Module\Cart\Tests\Unit\TestDoubles;
-
 
 use App\Module\Cart\Domain\Product;
 use App\Module\Cart\Domain\ProductId;

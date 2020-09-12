@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace App\Module\Cart\Domain\Exception;
 
 use App\Infrastructure\Domain\DomainException;

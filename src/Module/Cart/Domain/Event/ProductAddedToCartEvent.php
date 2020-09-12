@@ -19,7 +19,7 @@ final class ProductAddedToCartEvent extends DomainEvent
     public function __construct(CartId $cardId, Product $product)
     {
         parent::__construct(Uuid::uuid4());
-        $this->cardId  = $cardId;
+        $this->cardId = $cardId;
         $this->product = $product;
     }
 

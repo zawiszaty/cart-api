@@ -19,9 +19,9 @@ final class CartTest extends TestCase
         $cart = Cart::create(Uuid::uuid4());
 
         $eventCollection = $cart->getEventCollection();
-        $event           = $eventCollection->current();
+        $event = $eventCollection->current();
         self::assertInstanceOf(CartCreatedEvent::class, $event);
-        /** @var CartCreatedEvent $event */
+        /* @var CartCreatedEvent $event */
         self::assertTrue($event->getAggregateRootId()->equals($event->getAggregateRootId()));
     }
 
@@ -34,9 +34,9 @@ final class CartTest extends TestCase
         $cart->addProductToCart($product);
 
         $eventCollection = $cart->getEventCollection();
-        $event           = $eventCollection->current();
+        $event = $eventCollection->current();
         self::assertInstanceOf(ProductAddedToCartEvent::class, $event);
-        /** @var ProductAddedToCartEvent $event */
+        /* @var ProductAddedToCartEvent $event */
         self::assertTrue($event->getAggregateRootId()->equals($event->getAggregateRootId()));
         self::assertTrue($event->getProduct()->equals($product));
     }

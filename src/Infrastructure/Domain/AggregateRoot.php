@@ -32,5 +32,16 @@ abstract class AggregateRoot
         $this->eventCollection = new SplObjectStorage();
     }
 
+    public static function restore(array $domainEvents): AggregateRoot
+    {
+        $aggregate = new static();
+
+        foreach ($domainEvents as $domainEvent) {
+            $aggregate->apply($domainEvent);
+        }
+
+        return $aggregate;
+    }
+
     abstract public function apply(DomainEvent $event): void;
 }

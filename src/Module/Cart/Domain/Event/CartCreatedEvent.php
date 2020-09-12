@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Module\Cart\Domain\Event;
 
-use App\Infrastructure\Domain\AggregateRootId;
 use App\Infrastructure\Domain\DomainEvent;
-use App\Module\Cart\Domain\Cart;
 use App\Module\Cart\Domain\CartId;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
@@ -24,7 +22,7 @@ final class CartCreatedEvent extends DomainEvent
         $this->userId = $userId;
     }
 
-    public function getAggregateRootId(): AggregateRootId
+    public function getAggregateRootId(): CartId
     {
         return $this->cardId;
     }

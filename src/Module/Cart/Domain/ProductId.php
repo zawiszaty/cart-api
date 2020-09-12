@@ -8,5 +8,4 @@ use App\Infrastructure\Domain\AggregateRootId;
 
 final class ProductId extends AggregateRootId
 {
-
 }

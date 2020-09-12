@@ -21,12 +21,12 @@ final class CreateCardHandlerTest extends TestCase
     {
         parent::setUp();
         $this->cartRepository = new InMemoryCartRepository();
-        $this->handler        = new CreateCardHandler($this->cartRepository);
+        $this->handler = new CreateCardHandler($this->cartRepository);
     }
 
     public function testWhenCartIsCreated(): void
     {
-        $userid  = Uuid::uuid4();
+        $userid = Uuid::uuid4();
         $command = new CreateCartCommand($userid);
 
         ($this->handler)($command);
