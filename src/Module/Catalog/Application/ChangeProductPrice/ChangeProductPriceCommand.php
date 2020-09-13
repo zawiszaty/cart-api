@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Module\Catalog\Application\ChangeProductPrice;
 
-use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
 final class ChangeProductPriceCommand
@@ -18,8 +17,8 @@ final class ChangeProductPriceCommand
     public function __construct(UuidInterface $productId, float $price, string $currency)
     {
         $this->productId = $productId;
-        $this->price     = $price;
-        $this->currency  = $currency;
+        $this->price = $price;
+        $this->currency = $currency;
     }
 
     public function getProductId(): UuidInterface

@@ -14,7 +14,7 @@ final class AddProductToCartCommand
 
     public function __construct(UuidInterface $cartId, UuidInterface $productId)
     {
-        $this->cartId    = $cartId;
+        $this->cartId = $cartId;
         $this->productId = $productId;
     }
 

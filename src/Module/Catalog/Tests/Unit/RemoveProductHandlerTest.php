@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace App\Module\Catalog\Tests\Unit;
-
 
 use App\Module\Catalog\Application\RemoveProduct\RemoveProductCommand;
 use App\Module\Catalog\Application\RemoveProduct\RemoveProductHandler;
@@ -22,7 +20,7 @@ final class RemoveProductHandlerTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->repo    = new InmemoryProductRepository();
+        $this->repo = new InmemoryProductRepository();
         $this->handler = new RemoveProductHandler($this->repo);
     }
 

@@ -27,7 +27,7 @@ final class ModuleCatalogApi implements CatalogApi
 
     public function getProduct(UuidInterface $productId): \App\Module\Catalog\Shared\IO\Product
     {
-        $product =  $this->productRepository->get(ProductId::fromString($productId->toString()));
+        $product = $this->productRepository->get(ProductId::fromString($productId->toString()));
 
         return new \App\Module\Catalog\Shared\IO\Product($product->getProductId()->getId(), $product->getPrice()->getPrice());
     }

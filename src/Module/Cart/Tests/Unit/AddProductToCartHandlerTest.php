@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace App\Module\Cart\Tests\Unit;
-
 
 use App\Module\Cart\Application\AddProductToCart\AddProductToCartCommand;
 use App\Module\Cart\Application\AddProductToCart\AddProductToCartHandler;
@@ -36,15 +34,15 @@ final class AddProductToCartHandlerTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->cartRepository    = new InMemoryCartRepository();
+        $this->cartRepository = new InMemoryCartRepository();
         $this->productRepository = new InmemoryProductRepository();
-        $this->catalogApi        = new ModuleCatalogApi($this->productRepository);
-        $this->handler           = new AddProductToCartHandler(
+        $this->catalogApi = new ModuleCatalogApi($this->productRepository);
+        $this->handler = new AddProductToCartHandler(
             $this->cartRepository,
             $this->catalogApi
         );
-        $this->cart              = Cart::create(Uuid::uuid4());
-        $this->product           = Product::create(ProductName::fromString('test'), ProductPrice::fromString('20', 'PLN'));
+        $this->cart = Cart::create(Uuid::uuid4());
+        $this->product = Product::create(ProductName::fromString('test'), ProductPrice::fromString('20', 'PLN'));
         $this->productRepository->save($this->product);
         $this->cartRepository->save($this->cart);
     }

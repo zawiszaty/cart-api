@@ -20,7 +20,7 @@ final class CartTest extends TestCase
         $cart = Cart::create(Uuid::uuid4());
 
         $eventCollection = $cart->getEventCollection();
-        $event           = $eventCollection[0];
+        $event = $eventCollection[0];
         self::assertInstanceOf(CartCreatedEvent::class, $event);
         /* @var CartCreatedEvent $event */
         self::assertTrue($event->getAggregateRootId()->equals($event->getAggregateRootId()));
@@ -35,7 +35,7 @@ final class CartTest extends TestCase
         $cart->addProductToCart($product);
 
         $eventCollection = $cart->getEventCollection();
-        $event           = $eventCollection[0];
+        $event = $eventCollection[0];
         self::assertInstanceOf(ProductAddedToCartEvent::class, $event);
         /* @var ProductAddedToCartEvent $event */
         self::assertTrue($event->getAggregateRootId()->equals($event->getAggregateRootId()));
@@ -62,9 +62,8 @@ final class CartTest extends TestCase
         $cart->addProductToCart(ProductMother::create('20', 'PLN'));
         $cart->addProductToCart(ProductMother::create('20', 'PLN'));
         $products = $cart->getProducts();
-        $sum      = 0;
-        foreach ($products as $product)
-        {
+        $sum = 0;
+        foreach ($products as $product) {
             $sum += (float) $product->getPrice()->getPrice()->getAmount();
         }
         self::assertSame(30.0, $sum);
@@ -72,16 +71,15 @@ final class CartTest extends TestCase
 
     public function testDiscountCleaning(): void
     {
-        $cart    = Cart::create(Uuid::uuid4());
+        $cart = Cart::create(Uuid::uuid4());
         $product = ProductMother::create('20', 'PLN');
         $cart->addProductToCart(ProductMother::create('20', 'PLN'));
         $cart->addProductToCart(ProductMother::create('20', 'PLN'));
         $cart->addProductToCart($product);
         $cart->removeProductFromCart($product);
         $products = $cart->getProducts();
-        $sum      = 0;
-        foreach ($products as $product)
-        {
+        $sum = 0;
+        foreach ($products as $product) {
             $sum += (float) $product->getPrice()->getPrice()->getAmount();
         }
         self::assertSame(60.0, $sum);
@@ -89,7 +87,7 @@ final class CartTest extends TestCase
 
     public function testWhenRemoveFromCart(): void
     {
-        $cart    = Cart::create(Uuid::uuid4());
+        $cart = Cart::create(Uuid::uuid4());
         $product = ProductMother::create('20', 'PLN');
         $cart->addProductToCart($product);
         $cart->publishEvents();
@@ -97,7 +95,7 @@ final class CartTest extends TestCase
         $cart->removeProductFromCart($product);
 
         $eventCollection = $cart->getEventCollection();
-        $event           = $eventCollection[0];
+        $event = $eventCollection[0];
         self::assertInstanceOf(ProductRemoveFromCartEvent::class, $event);
         /* @var ProductRemoveFromCartEvent $event */
         self::assertTrue($event->getAggregateRootId()->equals($event->getAggregateRootId()));

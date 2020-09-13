@@ -16,9 +16,8 @@ final class ProductDiscountModifier implements ProductPriceModifier
         $modifiedProducts = new SplObjectStorage();
 
         /** @var Product $product */
-        foreach ($products as $product)
-        {
-            $price    = $product->getPrice();
+        foreach ($products as $product) {
+            $price = $product->getPrice();
             $newPrice = $price->getPrice()->divide(2);
             $product = $product->withPrice(ProductPrice::fromString($newPrice->getAmount(), $newPrice->getCurrency()->getCode()));
             $modifiedProducts->attach($product);

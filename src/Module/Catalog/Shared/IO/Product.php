@@ -16,7 +16,7 @@ final class Product
     public function __construct(UuidInterface $productId, Money $price)
     {
         $this->productId = $productId;
-        $this->price     = $price;
+        $this->price = $price;
     }
 
     public function getProductId(): UuidInterface

@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace App\Module\Cart\Domain\ProductPriceModifier;
-
 
 use SplObjectStorage;
 
@@ -15,16 +13,14 @@ final class ProductPriceModifierFactory
     public function __construct()
     {
         $this->modifiers = [
-            new ProductDiscountModifier()
+            new ProductDiscountModifier(),
         ];
     }
 
     public function modify(SplObjectStorage $products): SplObjectStorage
     {
-        foreach ($this->modifiers as $modifier) // in real case I will use chain of responsibility pattern
-        {
-            if ($modifier->supports($products))
-            {
+        foreach ($this->modifiers as $modifier) { // in real case I will use chain of responsibility pattern
+            if ($modifier->supports($products)) {
                 $products = $modifier->modify($products);
             }
         }

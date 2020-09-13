@@ -69,25 +69,21 @@ final class Product extends AggregateRoot
 
     public function apply(DomainEvent $event): void
     {
-        if ($event instanceof ProductCreatedEvent)
-        {
-            $this->productId   = $event->getAggregateRootId();
-            $this->price       = $event->getPrice();
+        if ($event instanceof ProductCreatedEvent) {
+            $this->productId = $event->getAggregateRootId();
+            $this->price = $event->getPrice();
             $this->productName = $event->getName();
         }
 
-        if ($event instanceof ProductNameChangedEvent)
-        {
+        if ($event instanceof ProductNameChangedEvent) {
             $this->productName = $event->getName();
         }
 
-        if ($event instanceof ProductPriceChangedEvent)
-        {
+        if ($event instanceof ProductPriceChangedEvent) {
             $this->price = $event->getPrice();
         }
 
-        if ($event instanceof ProductRemovedEvent)
-        {
+        if ($event instanceof ProductRemovedEvent) {
             $this->deleted = true;
         }
     }

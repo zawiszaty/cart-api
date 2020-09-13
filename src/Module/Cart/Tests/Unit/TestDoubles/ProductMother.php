@@ -6,7 +6,6 @@ namespace App\Module\Cart\Tests\Unit\TestDoubles;
 
 use App\Module\Cart\Domain\Product;
 use App\Module\Cart\Domain\ProductId;
-use App\Module\Cart\Domain\ProductName;
 use App\Module\Cart\Domain\ProductPrice;
 
 final class ProductMother

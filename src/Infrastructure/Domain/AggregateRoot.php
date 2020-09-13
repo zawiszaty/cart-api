@@ -35,8 +35,7 @@ abstract class AggregateRoot
     {
         $aggregate = new static();
 
-        foreach ($domainEvents as $domainEvent)
-        {
+        foreach ($domainEvents as $domainEvent) {
             $aggregate->apply($domainEvent);
         }
 

@@ -2,11 +2,8 @@
 
 declare(strict_types=1);
 
-
 namespace App\Module\Catalog\Application\RemoveProduct;
 
-
-use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
 final class RemoveProductCommand

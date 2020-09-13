@@ -20,12 +20,12 @@ final class RemoveProductFromCartHandler
     public function __construct(CartRepositoryInterface $cartRepository, CatalogApi $catalogApi)
     {
         $this->cartRepository = $cartRepository;
-        $this->catalogApi     = $catalogApi;
+        $this->catalogApi = $catalogApi;
     }
 
     public function __invoke(RemoveProductFromCart $command): void
     {
-        $cart    = $this->cartRepository->get(CartId::fromString($command->getProductId()->toString()));
+        $cart = $this->cartRepository->get(CartId::fromString($command->getProductId()->toString()));
         $product = $this->catalogApi->getProduct($command->getProductId());
         $cart->removeProductFromCart(new Product(
             ProductId::fromString($product->getProductId()->toString()),

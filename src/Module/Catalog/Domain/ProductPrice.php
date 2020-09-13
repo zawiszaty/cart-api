@@ -19,8 +19,7 @@ final class ProductPrice
 
     public static function fromString(string $price, string $currency): ProductPrice
     {
-        if ((float) $price <= 0)
-        {
+        if ((float) $price <= 0) {
             throw ProductException::fromWrongPrice();
         }
 

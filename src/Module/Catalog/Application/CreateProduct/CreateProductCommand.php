@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace App\Module\Catalog\Application\CreateProduct;
-
 
 final class CreateProductCommand
 {
@@ -16,8 +14,8 @@ final class CreateProductCommand
 
     public function __construct(string $name, float $price, string $currency)
     {
-        $this->name     = $name;
-        $this->price    = $price;
+        $this->name = $name;
+        $this->price = $price;
         $this->currency = $currency;
     }
 

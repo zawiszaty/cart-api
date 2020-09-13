@@ -20,7 +20,7 @@ final class ProductPriceChangedEvent extends DomainEvent
     {
         parent::__construct(Uuid::uuid4());
         $this->productId = $productId;
-        $this->price     = $price;
+        $this->price = $price;
     }
 
     public function getAggregateRootId(): AggregateRootId

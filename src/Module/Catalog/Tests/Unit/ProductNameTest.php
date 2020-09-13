@@ -17,5 +17,3 @@ final class ProductNameTest extends TestCase
         ProductName::fromString('');
     }
 }
-
-

@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace App\Module\Cart\Application\AddProductToCart;
-
 
 use App\Module\Cart\Domain\CartId;
 use App\Module\Cart\Domain\CartRepositoryInterface;
@@ -22,15 +20,14 @@ final class AddProductToCartHandler
     public function __construct(CartRepositoryInterface $cartRepository, CatalogApi $catalogApi)
     {
         $this->cartRepository = $cartRepository;
-        $this->catalogApi     = $catalogApi;
+        $this->catalogApi = $catalogApi;
     }
 
     public function __invoke(AddProductToCartCommand $command): void
     {
         $cart = $this->cartRepository->get(CartId::fromString($command->getProductId()->toString()));
 
-        if ($this->catalogApi->isAvailable($command->getProductId()))
-        {
+        if ($this->catalogApi->isAvailable($command->getProductId())) {
             $product = $this->catalogApi->getProduct($command->getProductId());
 
             $cart->addProductToCart(new Product(

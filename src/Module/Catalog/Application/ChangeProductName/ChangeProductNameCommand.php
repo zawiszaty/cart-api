@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Module\Catalog\Application\ChangeProductName;
 
-use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
 final class ChangeProductNameCommand
@@ -15,7 +14,7 @@ final class ChangeProductNameCommand
     public function __construct(UuidInterface $productId, string $name)
     {
         $this->productId = $productId;
-        $this->name      = $name;
+        $this->name = $name;
     }
 
     public function getProductId(): UuidInterface

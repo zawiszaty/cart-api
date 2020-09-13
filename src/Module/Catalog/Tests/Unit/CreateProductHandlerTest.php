@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace App\Module\Catalog\Tests\Unit;
-
 
 use App\Module\Catalog\Application\CreateProduct\CreateProductCommand;
 use App\Module\Catalog\Application\CreateProduct\CreateProductHandler;
@@ -21,7 +19,7 @@ final class CreateProductHandlerTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->repo    = new InmemoryProductRepository();
+        $this->repo = new InmemoryProductRepository();
         $this->handler = new CreateProductHandler($this->repo);
     }
 

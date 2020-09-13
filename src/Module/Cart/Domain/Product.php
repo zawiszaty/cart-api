@@ -14,8 +14,8 @@ final class Product
 
     public function __construct(ProductId $productId, ProductPrice $price)
     {
-        $this->productId            = $productId;
-        $this->price                = $price;
+        $this->productId = $productId;
+        $this->price = $price;
         $this->productPriceSnapshot = $price;
     }
 
@@ -37,7 +37,7 @@ final class Product
 
     public function withPrice(ProductPrice $price): self
     {
-        $product        = clone $this;
+        $product = clone $this;
         $product->price = $price;
 
         return $product;
