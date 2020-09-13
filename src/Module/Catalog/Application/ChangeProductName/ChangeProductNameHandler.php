@@ -1,0 +1,26 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Module\Catalog\Application\ChangeProductName;
+
+use App\Module\Catalog\Domain\ProductId;
+use App\Module\Catalog\Domain\ProductName;
+use App\Module\Catalog\Domain\ProductRepositoryInterface;
+
+final class ChangeProductNameHandler
+{
+    private ProductRepositoryInterface $productRepository;
+
+    public function __construct(ProductRepositoryInterface $productRepository)
+    {
+        $this->productRepository = $productRepository;
+    }
+
+    public function __invoke(ChangeProductNameCommand $command): void
+    {
+        $product = $this->productRepository->get(ProductId::fromString($command->getProductId()->toString()));
+        $product->changeName(ProductName::fromString($command->getName()));
+        $this->productRepository->save($product);
+    }
+}

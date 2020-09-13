@@ -8,25 +8,20 @@ final class Product
 {
     private ProductId $productId;
 
-    private ProductName $productName;
-
     private ProductPrice $price;
 
-    public function __construct(ProductId $productId, ProductName $productName, ProductPrice $price)
+    private ProductPrice $productPriceSnapshot;
+
+    public function __construct(ProductId $productId, ProductPrice $price)
     {
-        $this->productId = $productId;
-        $this->productName = $productName;
-        $this->price = $price;
+        $this->productId            = $productId;
+        $this->price                = $price;
+        $this->productPriceSnapshot = $price;
     }
 
     public function getProductId(): ProductId
     {
         return $this->productId;
-    }
-
-    public function getProductName(): ProductName
-    {
-        return $this->productName;
     }
 
     public function getPrice(): ProductPrice
@@ -36,8 +31,20 @@ final class Product
 
     public function equals(Product $product): bool
     {
-        return $this->productName->getName() === $product->getProductName()->getName()
-            && $this->productId->equals($product->getProductId())
+        return $this->productId->equals($product->getProductId())
             && $this->price->getPrice()->equals($product->getPrice()->getPrice());
+    }
+
+    public function withPrice(ProductPrice $price): self
+    {
+        $product        = clone $this;
+        $product->price = $price;
+
+        return $product;
+    }
+
+    public function getProductPriceSnapshot(): ProductPrice
+    {
+        return $this->productPriceSnapshot;
     }
 }

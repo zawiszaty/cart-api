@@ -10,7 +10,10 @@
         <directory name="src" />
         <ignoreFiles>
             <directory name="vendor" />
-            <file name="src/Kernel.php" />
+            <file name="src/Infrastructure/Symfony/Kernel.php" />
+            <directory name="src/Infrastructure/Tests" />
+            <directory name="src/Module/Cart/Tests" />
+            <directory name="src/Module/Catalog/Tests" />
         </ignoreFiles>
     </projectFiles>
 </psalm>

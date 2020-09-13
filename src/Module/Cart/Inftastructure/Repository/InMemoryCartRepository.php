@@ -7,29 +7,28 @@ namespace App\Module\Cart\Inftastructure\Repository;
 use App\Module\Cart\Domain\Cart;
 use App\Module\Cart\Domain\CartId;
 use App\Module\Cart\Domain\CartRepositoryInterface;
-use Ramsey\Uuid\Uuid;
 
 final class InMemoryCartRepository implements CartRepositoryInterface
 {
-    private \SplObjectStorage $events;
+    private array $events;
 
     public function __construct()
     {
-        $this->events = new \SplObjectStorage();
+        $this->events = [];
     }
 
     public function save(Cart $cart): void
     {
-        $this->events->attach(...$cart->getEventCollection());
+        $this->events = array_merge($this->events, $cart->getEventCollection());
         $cart->publishEvents();
     }
 
     public function get(CartId $cartId): Cart
     {
-        return Cart::create(Uuid::uuid4());
+        return Cart::restore($this->events);
     }
 
-    public function getEvents(): \SplObjectStorage
+    public function getEvents(): array
     {
         return $this->events;
     }

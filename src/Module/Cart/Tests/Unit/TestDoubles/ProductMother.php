@@ -11,8 +11,8 @@ use App\Module\Cart\Domain\ProductPrice;
 
 final class ProductMother
 {
-    public static function create(string $name, string $price, string $currency): Product
+    public static function create(string $price, string $currency): Product
     {
-        return new Product(ProductId::generate(), ProductName::fromString($name), ProductPrice::fromString($price, $currency));
+        return new Product(ProductId::generate(), ProductPrice::fromString($price, $currency));
     }
 }

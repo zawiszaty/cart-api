@@ -4,39 +4,39 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Domain;
 
-use SplObjectStorage;
-
 abstract class AggregateRoot
 {
-    /** @var SplObjectStorage|DomainEvent[] */
-    private SplObjectStorage $eventCollection;
+    /** @var DomainEvent[] */
+    private array $eventCollection;
+    protected bool $deleted = false;
 
     public function __construct()
     {
-        $this->eventCollection = new SplObjectStorage();
+        $this->eventCollection = [];
     }
 
     public function record(DomainEvent $event): void
     {
-        $this->eventCollection->attach($event);
+        $this->eventCollection[] = $event;
         $this->apply($event);
     }
 
-    public function getEventCollection(): SplObjectStorage
+    public function getEventCollection(): array
     {
         return $this->eventCollection;
     }
 
     public function publishEvents(): void
     {
-        $this->eventCollection = new SplObjectStorage();
+        $this->eventCollection = [];
     }
 
     public static function restore(array $domainEvents): AggregateRoot
     {
         $aggregate = new static();
 
-        foreach ($domainEvents as $domainEvent) {
+        foreach ($domainEvents as $domainEvent)
+        {
             $aggregate->apply($domainEvent);
         }
 
@@ -44,4 +44,9 @@ abstract class AggregateRoot
     }
 
     abstract public function apply(DomainEvent $event): void;
+
+    public function isDeleted(): bool
+    {
+        return $this->deleted;
+    }
 }

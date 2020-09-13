@@ -12,4 +12,9 @@ final class CartException extends DomainException
     {
         return new static('Product can have only 3 products');
     }
+
+    public static function fromEmptyCart(): self
+    {
+        return new static('Cart is empty');
+    }
 }

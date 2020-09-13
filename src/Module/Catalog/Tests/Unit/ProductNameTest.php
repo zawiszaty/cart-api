@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Module\Cart\Tests\Unit;
+namespace App\Module\Catalog\Tests\Unit;
 
-use App\Module\Cart\Domain\Exception\ProductException;
-use App\Module\Cart\Domain\ProductName;
+use App\Module\Catalog\Domain\Exception\ProductException;
+use App\Module\Catalog\Domain\ProductName;
 use PHPUnit\Framework\TestCase;
 
 final class ProductNameTest extends TestCase
@@ -17,3 +17,5 @@ final class ProductNameTest extends TestCase
         ProductName::fromString('');
     }
 }
+
+

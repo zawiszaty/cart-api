@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Module\Cart\Domain;
+namespace App\Module\Catalog\Domain;
 
-use App\Module\Cart\Domain\Exception\ProductException;
+use App\Module\Catalog\Domain\Exception\ProductException;
 
 final class ProductName
 {
@@ -27,5 +27,10 @@ final class ProductName
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function equals(ProductName $name): bool
+    {
+        return $this->name === $name->getName();
     }
 }
