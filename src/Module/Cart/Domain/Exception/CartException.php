@@ -17,4 +17,14 @@ final class CartException extends DomainException
     {
         return new static('Cart is empty');
     }
+
+    public static function fromMissingProduct(): self
+    {
+        return new static('Product is missing');
+    }
+
+    public static function fromMissingCart(): self
+    {
+        return new static('Cart is missing');
+    }
 }

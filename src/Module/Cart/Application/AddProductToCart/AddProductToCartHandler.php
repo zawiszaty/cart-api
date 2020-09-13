@@ -25,7 +25,7 @@ final class AddProductToCartHandler
 
     public function __invoke(AddProductToCartCommand $command): void
     {
-        $cart = $this->cartRepository->get(CartId::fromString($command->getProductId()->toString()));
+        $cart = $this->cartRepository->get(CartId::fromString($command->getCartId()->toString()));
 
         if ($this->catalogApi->isAvailable($command->getProductId())) {
             $product = $this->catalogApi->getProduct($command->getProductId());

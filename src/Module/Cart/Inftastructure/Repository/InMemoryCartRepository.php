@@ -19,13 +19,20 @@ final class InMemoryCartRepository implements CartRepositoryInterface
 
     public function save(Cart $cart): void
     {
-        $this->events = array_merge($this->events, $cart->getEventCollection());
+        foreach ($cart->getEventCollection() as $event) {
+            $this->events[$cart->getCardId()->getId()
+                ->toString()][] = $event;
+        }
         $cart->publishEvents();
     }
 
-    public function get(CartId $cartId): Cart
+    public function get(CartId $cartId): ?Cart
     {
-        return Cart::restore($this->events);
+        if (isset($this->events[$cartId->getId()->toString()])) {
+            return Cart::restore($this->events[$cartId->getId()->toString()]);
+        }
+
+        return null;
     }
 
     public function getEvents(): array

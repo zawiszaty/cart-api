@@ -35,7 +35,7 @@ final class ChangeProductPriceHandlerTest extends TestCase
             'PLN'
         ));
 
-        $events = $this->repo->getEvents();
+        $events = $this->repo->getEvents()[$product->getProductId()->getId()->toString()];
         self::assertCount(2, $events);
         self::assertInstanceOf(ProductPriceChangedEvent::class, $events[1]);
     }

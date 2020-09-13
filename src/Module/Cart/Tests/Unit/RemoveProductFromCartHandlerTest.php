@@ -4,21 +4,22 @@ declare(strict_types=1);
 
 namespace App\Module\Cart\Tests\Unit;
 
-use App\Module\Cart\Application\AddProductToCart\AddProductToCartCommand;
-use App\Module\Cart\Application\AddProductToCart\AddProductToCartHandler;
+use App\Module\Cart\Application\RemoveProductFromCart\RemoveProductFromCart;
+use App\Module\Cart\Application\RemoveProductFromCart\RemoveProductFromCartHandler;
 use App\Module\Cart\Domain\Cart;
-use App\Module\Cart\Domain\Event\CartCreatedEvent;
-use App\Module\Cart\Domain\Event\ProductAddedToCartEvent;
+use App\Module\Cart\Domain\Event\ProductRemoveFromCartEvent;
+use App\Module\Cart\Domain\ProductId;
 use App\Module\Cart\Inftastructure\Repository\InMemoryCartRepository;
 use App\Module\Catalog\Domain\Product;
 use App\Module\Catalog\Domain\ProductName;
 use App\Module\Catalog\Domain\ProductPrice;
 use App\Module\Catalog\Inftastructure\Repository\InmemoryProductRepository;
+use App\Module\Catalog\Shared\IO\ProductException;
 use App\Module\Catalog\Shared\ModuleCatalogApi;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
 
-final class AddProductToCartHandlerTest extends TestCase
+final class RemoveProductFromCartHandlerTest extends TestCase
 {
     private InMemoryCartRepository $cartRepository;
 
@@ -26,7 +27,7 @@ final class AddProductToCartHandlerTest extends TestCase
 
     private ModuleCatalogApi $catalogApi;
 
-    private AddProductToCartHandler $handler;
+    private RemoveProductFromCartHandler $handler;
 
     private Cart $cart;
 
@@ -38,37 +39,40 @@ final class AddProductToCartHandlerTest extends TestCase
         $this->cartRepository = new InMemoryCartRepository();
         $this->productRepository = new InmemoryProductRepository();
         $this->catalogApi = new ModuleCatalogApi($this->productRepository);
-        $this->handler = new AddProductToCartHandler(
+        $this->handler = new RemoveProductFromCartHandler(
             $this->cartRepository,
             $this->catalogApi
         );
         $this->cart = Cart::create(Uuid::uuid4());
         $this->product = Product::create(ProductName::fromString('test'), ProductPrice::fromString('20', 'PLN'));
+        $this->cart->addProductToCart(new \App\Module\Cart\Domain\Product(
+            ProductId::fromString($this->product->getProductId()->getId()->toString()),
+            \App\Module\Cart\Domain\ProductPrice::fromString($this->product->getPrice()->getPrice()
+                ->getAmount(), $this->product->getPrice()->getPrice()->getCurrency()->getCode())
+        ));
         $this->productRepository->save($this->product);
         $this->cartRepository->save($this->cart);
     }
 
-    public function testWhenAddProductToCart(): void
+    public function testWhenRemoveProductFromCart(): void
     {
-        ($this->handler)(new AddProductToCartCommand(
+        ($this->handler)(new RemoveProductFromCart(
             $this->cart->getCardId()->getId(),
             $this->product->getProductId()->getId()
         ));
 
         $events = $this->cartRepository->getEvents()[$this->cart->getCardId()->getId()->toString()];
-        self::assertSame(2, count($events));
-        self::assertInstanceOf(ProductAddedToCartEvent::class, $events[1]);
+        self::assertCount(3, $events);
+        self::assertInstanceOf(ProductRemoveFromCartEvent::class, $events[2]);
     }
 
-    public function testWhenProductIsNotAvailable(): void
+    public function testWhenProductIsMissing(): void
     {
-        ($this->handler)(new AddProductToCartCommand(
+        $this->expectException(ProductException::class);
+
+        ($this->handler)(new RemoveProductFromCart(
             $this->cart->getCardId()->getId(),
             Uuid::uuid4()
         ));
-
-        $events = $this->cartRepository->getEvents()[$this->cart->getCardId()->getId()->toString()];
-        self::assertSame(1, count($events));
-        self::assertInstanceOf(CartCreatedEvent::class, $events[0]);
     }
 }

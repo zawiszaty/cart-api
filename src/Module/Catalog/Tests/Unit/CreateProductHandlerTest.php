@@ -27,7 +27,7 @@ final class CreateProductHandlerTest extends TestCase
     {
         ($this->handler)(new CreateProductCommand('test', 20.0, 'PLN'));
 
-        $events = $this->repo->getEvents();
+        $events = $this->repo->getEvents()[array_keys($this->repo->getEvents())[0]];
         self::assertCount(1, $events);
         self::assertInstanceOf(ProductCreatedEvent::class, $events[0]);
     }

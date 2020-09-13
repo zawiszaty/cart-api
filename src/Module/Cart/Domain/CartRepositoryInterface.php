@@ -8,5 +8,5 @@ interface CartRepositoryInterface
 {
     public function save(Cart $cart): void;
 
-    public function get(CartId $cartId): Cart;
+    public function get(CartId $cartId): ?Cart;
 }

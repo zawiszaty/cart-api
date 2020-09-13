@@ -21,5 +21,5 @@ interface EventStore
 
     public function getAllAggregatesByType(string $aggregate): array;
 
-    public function getAggregate(AggregateRootId $withId, string $aggregate): AggregateRoot;
+    public function getAggregate(AggregateRootId $withId, string $aggregate): ?AggregateRoot;
 }

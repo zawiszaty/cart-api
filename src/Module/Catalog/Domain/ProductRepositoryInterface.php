@@ -8,5 +8,5 @@ interface ProductRepositoryInterface
 {
     public function save(Product $product): void;
 
-    public function get(ProductId $productId): Product;
+    public function get(ProductId $productId): ?Product;
 }

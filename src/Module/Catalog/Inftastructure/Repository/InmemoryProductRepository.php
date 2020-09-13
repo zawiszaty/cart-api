@@ -19,13 +19,22 @@ final class InmemoryProductRepository implements ProductRepositoryInterface
 
     public function save(Product $product): void
     {
-        $this->events = array_merge($this->events, $product->getEventCollection());
+        foreach ($product->getEventCollection() as $event) {
+            $this->events[$product->getProductId()->getId()
+                ->toString()][] = $event;
+        }
         $product->publishEvents();
     }
 
-    public function get(ProductId $productId): Product
+    public function get(ProductId $productId): ?Product
     {
-        return Product::restore($this->events);
+        if (isset($this->events[$productId->getId()
+                ->toString()])) {
+            return Product::restore($this->events[$productId->getId()
+                ->toString()]);
+        }
+
+        return null;
     }
 
     public function getEvents(): array

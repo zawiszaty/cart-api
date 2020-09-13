@@ -7,6 +7,7 @@ namespace App\Module\Catalog\Shared;
 use App\Module\Catalog\Domain\Product;
 use App\Module\Catalog\Domain\ProductId;
 use App\Module\Catalog\Domain\ProductRepositoryInterface;
+use App\Module\Catalog\Shared\IO\ProductException;
 use Ramsey\Uuid\UuidInterface;
 
 final class ModuleCatalogApi implements CatalogApi
@@ -29,6 +30,11 @@ final class ModuleCatalogApi implements CatalogApi
     {
         $product = $this->productRepository->get(ProductId::fromString($productId->toString()));
 
-        return new \App\Module\Catalog\Shared\IO\Product($product->getProductId()->getId(), $product->getPrice()->getPrice());
+        if (false === $product instanceof Product) {
+            throw ProductException::fromMissingProduct();
+        }
+
+        return new \App\Module\Catalog\Shared\IO\Product($product->getProductId()->getId(), $product->getPrice()
+            ->getPrice());
     }
 }

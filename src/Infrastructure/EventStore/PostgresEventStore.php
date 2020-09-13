@@ -49,11 +49,15 @@ final class PostgresEventStore implements EventStore
         // TODO: Implement getAllAggregatesByType() method.
     }
 
-    public function getAggregate(AggregateRootId $withId, string $aggregate): AggregateRoot
+    public function getAggregate(AggregateRootId $withId, string $aggregate): ?AggregateRoot
     {
         $events = $this->eventRepository->findBy([
             'aggregateRootId' => $withId->getId(),
         ]);
+
+        if (0 === count($events)) {
+            return null;
+        }
         /** @var EventStoreEvent[] $aggregateEvents */
         $domainEvents = [];
 

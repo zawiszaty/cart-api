@@ -24,7 +24,7 @@ final class ChangeProductNameHandlerTest extends TestCase
         $this->handler = new ChangeProductNameHandler($this->repo);
     }
 
-    public function testWhenCreateProduct(): void
+    public function testWhenChangeProductName(): void
     {
         $product = ProductMother::create();
         $this->repo->save($product);
@@ -34,7 +34,7 @@ final class ChangeProductNameHandlerTest extends TestCase
             'test2'
         ));
 
-        $events = $this->repo->getEvents();
+        $events = $this->repo->getEvents()[$product->getProductId()->getId()->toString()];
         self::assertCount(2, $events);
         self::assertInstanceOf(ProductNameChangedEvent::class, $events[1]);
     }

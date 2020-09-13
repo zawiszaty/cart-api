@@ -29,7 +29,7 @@ final class CartRepository implements CartRepositoryInterface
         $cart->publishEvents();
     }
 
-    public function get(CartId $cartId): Cart
+    public function get(CartId $cartId): ?Cart
     {
         return $this->eventStore->getAggregate($cartId, $this->aggregateClass);
     }

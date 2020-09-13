@@ -44,6 +44,7 @@ final class Cart extends AggregateRoot
         if (3 === count($this->products)) {
             throw CartException::fromToManyProducts();
         }
+
         $this->record(new ProductAddedToCartEvent($this->getCardId(), $product));
     }
 
@@ -52,6 +53,11 @@ final class Cart extends AggregateRoot
         if (0 === count($this->products)) {
             throw CartException::fromEmptyCart();
         }
+
+        if (false === isset($this->products[$product->getProductId()->getId()->toString()])) {
+            throw CartException::fromMissingProduct();
+        }
+
         $this->record(new ProductRemoveFromCartEvent($this->getCardId(), $product));
     }
 
