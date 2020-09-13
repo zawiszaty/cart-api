@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Module\Cart\Domain\ProductPriceModifier;
 
-use SplObjectStorage;
-
 final class ProductPriceModifierFactory
 {
     private array $modifiers;
@@ -17,7 +15,7 @@ final class ProductPriceModifierFactory
         ];
     }
 
-    public function modify(SplObjectStorage $products): SplObjectStorage
+    public function modify(array $products): array
     {
         foreach ($this->modifiers as $modifier) { // in real case I will use chain of responsibility pattern
             if ($modifier->supports($products)) {

@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace App\Module\Cart\Domain;
 
-use SplObjectStorage;
-
 interface ProductPriceModifier
 {
-    public function modify(SplObjectStorage $products): SplObjectStorage;
+    public function modify(array $products): array;
 
-    public function supports(SplObjectStorage $products): bool;
+    public function supports(array $products): bool;
 }

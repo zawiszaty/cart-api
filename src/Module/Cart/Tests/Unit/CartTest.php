@@ -82,7 +82,7 @@ final class CartTest extends TestCase
         foreach ($products as $product) {
             $sum += (float) $product->getPrice()->getPrice()->getAmount();
         }
-        self::assertSame(60.0, $sum);
+        self::assertSame(40.0, $sum);
     }
 
     public function testWhenRemoveFromCart(): void

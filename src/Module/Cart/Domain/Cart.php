@@ -12,14 +12,13 @@ use App\Module\Cart\Domain\Event\ProductRemoveFromCartEvent;
 use App\Module\Cart\Domain\Exception\CartException;
 use App\Module\Cart\Domain\ProductPriceModifier\ProductPriceModifierFactory;
 use Ramsey\Uuid\UuidInterface;
-use SplObjectStorage;
 
 final class Cart extends AggregateRoot
 {
     private CartId $id;
 
-    /** @var SplObjectStorage|Product[] */
-    private SplObjectStorage $products;
+    /** @var array|Product[] */
+    private array $products;
 
     private UuidInterface $userId;
 
@@ -28,7 +27,7 @@ final class Cart extends AggregateRoot
     public function __construct()
     {
         parent::__construct();
-        $this->products = new SplObjectStorage();
+        $this->products = [];
         $this->priceModifiers = new ProductPriceModifierFactory();
     }
 
@@ -42,7 +41,7 @@ final class Cart extends AggregateRoot
 
     public function addProductToCart(Product $product): void
     {
-        if (3 === $this->products->count()) {
+        if (3 === count($this->products)) {
             throw CartException::fromToManyProducts();
         }
         $this->record(new ProductAddedToCartEvent($this->getCardId(), $product));
@@ -50,7 +49,7 @@ final class Cart extends AggregateRoot
 
     public function removeProductFromCart(Product $product): void
     {
-        if (0 === $this->products->count()) {
+        if (0 === count($this->products)) {
             throw CartException::fromEmptyCart();
         }
         $this->record(new ProductRemoveFromCartEvent($this->getCardId(), $product));
@@ -68,18 +67,19 @@ final class Cart extends AggregateRoot
             $this->userId = $event->getUserId();
         }
         if ($event instanceof ProductAddedToCartEvent) {
-            $this->products->attach($event->getProduct());
+            $this->products[$event->getProduct()->getProductId()->getId()->toString()] = $event->getProduct();
             $this->products = $this->priceModifiers->modify($this->products);
         }
         if ($event instanceof ProductRemoveFromCartEvent) {
-            $this->products->detach($event->getProduct());
-            $productSnapshots = new SplObjectStorage();
+            unset($this->products[$event->getProduct()->getProductId()->getId()->toString()]);
+            $productSnapshots = [];
 
             foreach ($this->products as $product) {
-                $productSnapshots->attach($product->withPrice(ProductPrice::fromString(
-                    $product->getProductPriceSnapshot()->getPrice()->getAmount(),
-                    $product->getProductPriceSnapshot()->getPrice()->getCurrency()->getCode()
-                )));
+                $productSnapshots[$product->getProductId()->getId()
+                    ->toString()] = $product->withPrice(ProductPrice::fromString(
+                        $product->getProductPriceSnapshot()->getPrice()->getAmount(),
+                        $product->getProductPriceSnapshot()->getPrice()->getCurrency()->getCode()
+                    ));
             }
             $this->products = $this->priceModifiers->modify($productSnapshots);
         }

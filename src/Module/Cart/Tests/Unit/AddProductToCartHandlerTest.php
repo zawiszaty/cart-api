@@ -67,6 +67,6 @@ final class AddProductToCartHandlerTest extends TestCase
         ));
 
         $events = $this->cartRepository->getEvents();
-        self::assertSame(1, count($events));
+        self::assertSame(2, count($events));
     }
 }

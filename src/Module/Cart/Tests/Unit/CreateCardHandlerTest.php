@@ -32,7 +32,7 @@ final class CreateCardHandlerTest extends TestCase
         ($this->handler)($command);
 
         $events = $this->cartRepository->getEvents();
-        self::assertSame(1, $events->count());
-        self::assertInstanceOf(CartCreatedEvent::class, $events->current());
+        self::assertCount(1, $events);
+        self::assertInstanceOf(CartCreatedEvent::class, $events[0]);
     }
 }
