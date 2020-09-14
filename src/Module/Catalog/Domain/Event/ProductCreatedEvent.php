@@ -46,4 +46,27 @@ final class ProductCreatedEvent extends DomainEvent
     {
         return $this->price;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'event_id' => $this->getEventId()->toString(),
+            'id' => $this->getProductId()->getId()->toString(),
+            'price' => $this->getPrice()->getPrice()->getAmount(),
+            'currency' => $this->getPrice()->getPrice()->getCurrency()->getCode(),
+            'name' => $this->getName()->getName(),
+        ];
+    }
+
+    public static function fromArray(array $payload): DomainEvent
+    {
+        $event = new self(
+            ProductId::fromString($payload['id']),
+            ProductName::fromString($payload['name']),
+            ProductPrice::fromString($payload['price'], $payload['currency'])
+        );
+        $event->eventId = Uuid::fromString($payload['event_id']);
+
+        return $event;
+    }
 }

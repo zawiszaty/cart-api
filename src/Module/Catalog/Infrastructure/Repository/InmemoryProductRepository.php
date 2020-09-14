@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Module\Catalog\Inftastructure\Repository;
+namespace App\Module\Catalog\Infrastructure\Repository;
 
 use App\Module\Catalog\Domain\Product;
 use App\Module\Catalog\Domain\ProductId;

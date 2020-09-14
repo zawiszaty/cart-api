@@ -7,7 +7,7 @@ namespace App\Module\Cart\Tests\Unit;
 use App\Module\Cart\Application\CreateCart\CreateCardHandler;
 use App\Module\Cart\Application\CreateCart\CreateCartCommand;
 use App\Module\Cart\Domain\Event\CartCreatedEvent;
-use App\Module\Cart\Inftastructure\Repository\InMemoryCartRepository;
+use App\Module\Cart\Infrastructure\Repository\InMemoryCartRepository;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
 

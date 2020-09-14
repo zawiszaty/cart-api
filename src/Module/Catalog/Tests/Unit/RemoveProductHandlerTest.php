@@ -7,7 +7,7 @@ namespace App\Module\Catalog\Tests\Unit;
 use App\Module\Catalog\Application\RemoveProduct\RemoveProductCommand;
 use App\Module\Catalog\Application\RemoveProduct\RemoveProductHandler;
 use App\Module\Catalog\Domain\Event\ProductRemovedEvent;
-use App\Module\Catalog\Inftastructure\Repository\InmemoryProductRepository;
+use App\Module\Catalog\Infrastructure\Repository\InmemoryProductRepository;
 use App\Module\Catalog\Tests\TestDoubles\ProductMother;
 use PHPUnit\Framework\TestCase;
 

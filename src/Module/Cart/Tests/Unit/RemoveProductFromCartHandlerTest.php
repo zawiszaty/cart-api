@@ -8,12 +8,13 @@ use App\Module\Cart\Application\RemoveProductFromCart\RemoveProductFromCart;
 use App\Module\Cart\Application\RemoveProductFromCart\RemoveProductFromCartHandler;
 use App\Module\Cart\Domain\Cart;
 use App\Module\Cart\Domain\Event\ProductRemoveFromCartEvent;
+use App\Module\Cart\Domain\Exception\CartException;
 use App\Module\Cart\Domain\ProductId;
-use App\Module\Cart\Inftastructure\Repository\InMemoryCartRepository;
+use App\Module\Cart\Infrastructure\Repository\InMemoryCartRepository;
 use App\Module\Catalog\Domain\Product;
 use App\Module\Catalog\Domain\ProductName;
 use App\Module\Catalog\Domain\ProductPrice;
-use App\Module\Catalog\Inftastructure\Repository\InmemoryProductRepository;
+use App\Module\Catalog\Infrastructure\Repository\InmemoryProductRepository;
 use App\Module\Catalog\Shared\IO\ProductException;
 use App\Module\Catalog\Shared\ModuleCatalogApi;
 use PHPUnit\Framework\TestCase;
@@ -73,6 +74,16 @@ final class RemoveProductFromCartHandlerTest extends TestCase
         ($this->handler)(new RemoveProductFromCart(
             $this->cart->getCardId()->getId(),
             Uuid::uuid4()
+        ));
+    }
+
+    public function testWhenCartIsMissing(): void
+    {
+        $this->expectException(CartException::class);
+
+        ($this->handler)(new RemoveProductFromCart(
+            Uuid::uuid4(),
+            $this->product->getProductId()->getId()
         ));
     }
 }

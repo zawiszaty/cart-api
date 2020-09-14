@@ -9,7 +9,7 @@ use Ramsey\Uuid\UuidInterface;
 
 class AggregateRootId
 {
-    private UuidInterface $uuid;
+    protected UuidInterface $uuid;
 
     public function __construct(UuidInterface $uuid)
     {

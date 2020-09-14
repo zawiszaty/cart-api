@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Module\Cart\Inftastructure\Repository;
+namespace App\Module\Cart\Infrastructure\Repository;
 
 use App\Infrastructure\EventStore\EventStore;
 use App\Module\Cart\Domain\Cart;

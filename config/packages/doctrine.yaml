@@ -16,3 +16,15 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Infrastructure/EventStore'
                 prefix: 'App\Infrastructure\EventStore'
                 alias: EventStore
+            Catalog:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Module/Catalog/Infrastructure/Doctrine/Entity'
+                prefix: 'App\Module\Catalog\Infrastructure\Doctrine\Entity'
+                alias: Catalog
+            Cart:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Module/Cart/Infrastructure/Doctrine/Entity'
+                prefix: 'App\Module\Cart\Infrastructure\Doctrine\Entity'
+                alias: Cart

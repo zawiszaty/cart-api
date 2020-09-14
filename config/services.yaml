@@ -32,4 +32,19 @@ services:
         tags:
             - { name: console.command }
 
-    App\Module\Cart\Domain\CartRepositoryInterface: '@App\Module\Cart\Inftastructure\Repository\CartRepository'
+    App\Module\Cart\Domain\CartRepositoryInterface: '@App\Module\Cart\Infrastructure\Repository\CartRepository'
+
+    App\Module\Catalog\Domain\ProductRepositoryInterface: '@App\Module\Catalog\Infrastructure\Repository\ProductRepository'
+
+    App\Module\Cart\Infrastructure\Doctrine\Projection\CartProjection:
+        public: true
+    App\Module\Catalog\Infrastructure\Doctrine\Projection\ProductProjection:
+        public: true
+
+    App\Infrastructure\Symfony\RequestDTOResolver:
+        tags:
+            - { name: controller.request_value_resolver, priority: 50 }
+
+    App\Infrastructure\Symfony\JsonBodyParserSubscriber:
+        tags:
+            - { name: 'kernel.event_listener', event: 'kernel.request', method: 'onKernelRequest', priority: 100 }

@@ -84,6 +84,32 @@
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
+    "gamez/ramsey-uuid-normalizer": {
+        "version": "2.1.0"
+    },
+    "gbprod/uuid-normalizer": {
+        "version": "v1.2.1"
+    },
+    "jms/metadata": {
+        "version": "2.3.0"
+    },
+    "jms/serializer": {
+        "version": "3.9.0"
+    },
+    "jms/serializer-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "384cec52df45f3bfd46a09930d6960a58872b268"
+        },
+        "files": [
+            "config/packages/dev/jms_serializer.yaml",
+            "config/packages/jms_serializer.yaml",
+            "config/packages/prod/jms_serializer.yaml"
+        ]
+    },
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
@@ -262,6 +288,12 @@
     "symfony/polyfill-php80": {
         "version": "v1.18.1"
     },
+    "symfony/property-access": {
+        "version": "v5.1.5"
+    },
+    "symfony/property-info": {
+        "version": "v5.1.5"
+    },
     "symfony/routing": {
         "version": "5.1",
         "recipe": {
@@ -275,6 +307,9 @@
             "config/packages/routing.yaml",
             "config/routes.yaml"
         ]
+    },
+    "symfony/serializer": {
+        "version": "v5.1.5"
     },
     "symfony/service-contracts": {
         "version": "v2.2.0"

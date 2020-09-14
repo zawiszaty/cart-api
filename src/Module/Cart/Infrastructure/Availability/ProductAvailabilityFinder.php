@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Module\Cart\Inftastructure\Availability;
+namespace App\Module\Cart\Infrastructure\Availability;
 
 use App\Module\Cart\Domain\ProductAvailabilityFinder as ProductAvailabilityFinderInterface;
 use App\Module\Cart\Domain\ProductId;

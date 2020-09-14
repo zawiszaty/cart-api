@@ -47,4 +47,12 @@ final class Product
     {
         return $this->productPriceSnapshot;
     }
+
+    public function withPriceSnapshot(ProductPrice $price): self
+    {
+        $product = clone $this;
+        $product->productPriceSnapshot = $price;
+
+        return $product;
+    }
 }

@@ -23,4 +23,22 @@ final class ProductRemovedEvent extends DomainEvent
     {
         return $this->productId;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'event_id' => $this->getEventId()->toString(),
+            'id' => $this->getAggregateRootId()->getId()->toString(),
+        ];
+    }
+
+    public static function fromArray(array $payload): DomainEvent
+    {
+        $event = new self(
+            ProductId::fromString($payload['id']),
+        );
+        $event->eventId = Uuid::fromString($payload['event_id']);
+
+        return $event;
+    }
 }

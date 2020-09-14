@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace App\Module\Cart\Application\AddProductToCart;
 
+use App\Module\Cart\Domain\Cart;
 use App\Module\Cart\Domain\CartId;
 use App\Module\Cart\Domain\CartRepositoryInterface;
+use App\Module\Cart\Domain\Exception\CartException;
 use App\Module\Cart\Domain\Product;
+use App\Module\Cart\Domain\ProductAvailabilityFinder;
 use App\Module\Cart\Domain\ProductId;
 use App\Module\Cart\Domain\ProductPrice;
 use App\Module\Catalog\Shared\CatalogApi;
@@ -17,17 +20,24 @@ final class AddProductToCartHandler
 
     private CatalogApi $catalogApi;
 
-    public function __construct(CartRepositoryInterface $cartRepository, CatalogApi $catalogApi)
+    private ProductAvailabilityFinder $availabilityFinder;
+
+    public function __construct(CartRepositoryInterface $cartRepository, CatalogApi $catalogApi, ProductAvailabilityFinder $availabilityFinder)
     {
         $this->cartRepository = $cartRepository;
         $this->catalogApi = $catalogApi;
+        $this->availabilityFinder = $availabilityFinder;
     }
 
     public function __invoke(AddProductToCartCommand $command): void
     {
         $cart = $this->cartRepository->get(CartId::fromString($command->getCartId()->toString()));
 
-        if ($this->catalogApi->isAvailable($command->getProductId())) {
+        if (false === $cart instanceof Cart) {
+            throw CartException::fromMissingCart();
+        }
+
+        if ($this->availabilityFinder->isAvailable(ProductId::fromString($command->getProductId()->toString()))) {
             $product = $this->catalogApi->getProduct($command->getProductId());
 
             $cart->addProductToCart(new Product(
@@ -36,6 +46,10 @@ final class AddProductToCartHandler
                     ->getCode())
             ));
             $this->cartRepository->save($cart);
+
+            return;
         }
+
+        throw CartException::fromMissingProduct();
     }
 }

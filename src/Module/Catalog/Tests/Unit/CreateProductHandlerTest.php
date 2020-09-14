@@ -7,7 +7,7 @@ namespace App\Module\Catalog\Tests\Unit;
 use App\Module\Catalog\Application\CreateProduct\CreateProductCommand;
 use App\Module\Catalog\Application\CreateProduct\CreateProductHandler;
 use App\Module\Catalog\Domain\Event\ProductCreatedEvent;
-use App\Module\Catalog\Inftastructure\Repository\InmemoryProductRepository;
+use App\Module\Catalog\Infrastructure\Repository\InmemoryProductRepository;
 use PHPUnit\Framework\TestCase;
 
 final class CreateProductHandlerTest extends TestCase

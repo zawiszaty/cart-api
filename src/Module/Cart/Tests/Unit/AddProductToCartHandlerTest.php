@@ -7,13 +7,14 @@ namespace App\Module\Cart\Tests\Unit;
 use App\Module\Cart\Application\AddProductToCart\AddProductToCartCommand;
 use App\Module\Cart\Application\AddProductToCart\AddProductToCartHandler;
 use App\Module\Cart\Domain\Cart;
-use App\Module\Cart\Domain\Event\CartCreatedEvent;
 use App\Module\Cart\Domain\Event\ProductAddedToCartEvent;
-use App\Module\Cart\Inftastructure\Repository\InMemoryCartRepository;
+use App\Module\Cart\Domain\Exception\CartException;
+use App\Module\Cart\Infrastructure\Availability\ProductAvailabilityFinder;
+use App\Module\Cart\Infrastructure\Repository\InMemoryCartRepository;
 use App\Module\Catalog\Domain\Product;
 use App\Module\Catalog\Domain\ProductName;
 use App\Module\Catalog\Domain\ProductPrice;
-use App\Module\Catalog\Inftastructure\Repository\InmemoryProductRepository;
+use App\Module\Catalog\Infrastructure\Repository\InmemoryProductRepository;
 use App\Module\Catalog\Shared\ModuleCatalogApi;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
@@ -40,7 +41,8 @@ final class AddProductToCartHandlerTest extends TestCase
         $this->catalogApi = new ModuleCatalogApi($this->productRepository);
         $this->handler = new AddProductToCartHandler(
             $this->cartRepository,
-            $this->catalogApi
+            $this->catalogApi,
+            new ProductAvailabilityFinder($this->catalogApi)
         );
         $this->cart = Cart::create(Uuid::uuid4());
         $this->product = Product::create(ProductName::fromString('test'), ProductPrice::fromString('20', 'PLN'));
@@ -62,13 +64,21 @@ final class AddProductToCartHandlerTest extends TestCase
 
     public function testWhenProductIsNotAvailable(): void
     {
+        $this->expectException(CartException::class);
+
         ($this->handler)(new AddProductToCartCommand(
             $this->cart->getCardId()->getId(),
             Uuid::uuid4()
         ));
+    }
 
-        $events = $this->cartRepository->getEvents()[$this->cart->getCardId()->getId()->toString()];
-        self::assertSame(1, count($events));
-        self::assertInstanceOf(CartCreatedEvent::class, $events[0]);
+    public function testWhenCartIsMissing(): void
+    {
+        $this->expectException(CartException::class);
+
+        ($this->handler)(new AddProductToCartCommand(
+            Uuid::uuid4(),
+            $this->product->getProductId()->getId()
+        ));
     }
 }

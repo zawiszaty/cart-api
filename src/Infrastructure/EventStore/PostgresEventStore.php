@@ -16,10 +16,13 @@ final class PostgresEventStore implements EventStore
 
     private EventStoreEventRepository $eventRepository;
 
-    public function __construct(EntityManagerInterface $entityManager, EventStoreEventRepository $eventRepository)
+    private Projector $projector;
+
+    public function __construct(EntityManagerInterface $entityManager, EventStoreEventRepository $eventRepository, Projector $projector)
     {
         $this->entityManager = $entityManager;
         $this->eventRepository = $eventRepository;
+        $this->projector = $projector;
     }
 
     public function getEvents(): SplObjectStorage
@@ -32,11 +35,12 @@ final class PostgresEventStore implements EventStore
         $eventStoreEvent = new EventStoreEvent(
             $event->getAggregateRootId()->getId(),
             $aggregateClass,
-            serialize($event),
+            json_encode($event->toArray(), JSON_THROW_ON_ERROR),
             get_class($event),
         );
         $this->entityManager->persist($eventStoreEvent);
         $this->entityManager->flush();
+        $this->projector->apply($event);
     }
 
     public function getAggregateEvents(AggregateRootId $id, string $aggregateClass): SplObjectStorage
@@ -63,7 +67,7 @@ final class PostgresEventStore implements EventStore
 
         /** @var EventStoreEvent $event */
         foreach ($events as $event) {
-            $domainEvents[] = unserialize($event->getEvent());
+            $domainEvents[] = call_user_func($event->getEventName().'::fromArray', json_decode($event->getEvent(), true, 512, JSON_THROW_ON_ERROR));
         }
 
         return call_user_func($aggregate.'::restore', $domainEvents);

@@ -37,4 +37,24 @@ final class ProductNameChangedEvent extends DomainEvent
     {
         return $this->name;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'event_id' => $this->getEventId()->toString(),
+            'id' => $this->getProductId()->getId()->toString(),
+            'name' => $this->getName()->getName(),
+        ];
+    }
+
+    public static function fromArray(array $payload): DomainEvent
+    {
+        $event = new self(
+            ProductId::fromString($payload['id']),
+            ProductName::fromString($payload['name']),
+        );
+        $event->eventId = Uuid::fromString($payload['event_id']);
+
+        return $event;
+    }
 }

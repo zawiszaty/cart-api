@@ -31,4 +31,21 @@ final class CartCreatedEvent extends DomainEvent
     {
         return $this->userId;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'event_id' => $this->getEventId()->toString(),
+            'cart_id' => $this->getAggregateRootId()->getId()->toString(),
+            'user_id' => $this->getUserId()->toString(),
+        ];
+    }
+
+    public static function fromArray(array $payload): self
+    {
+        $event = new self(CartId::fromString($payload['cart_id']), Uuid::fromString($payload['user_id']));
+        $event->eventId = Uuid::fromString($payload['event_id']);
+
+        return $event;
+    }
 }

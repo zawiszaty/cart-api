@@ -33,7 +33,7 @@ final class EventStoreEvent
     private string $aggregateName;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="text")
      */
     private string $event;
 

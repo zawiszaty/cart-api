@@ -8,7 +8,7 @@ use Ramsey\Uuid\UuidInterface;
 
 abstract class DomainEvent
 {
-    private UuidInterface $eventId;
+    protected UuidInterface $eventId;
 
     public function __construct(UuidInterface $eventId)
     {
@@ -21,4 +21,8 @@ abstract class DomainEvent
     }
 
     abstract public function getAggregateRootId(): AggregateRootId;
+
+    abstract public function toArray(): array;
+
+    abstract public static function fromArray(array $payload): self;
 }
