@@ -8,11 +8,11 @@ final class CreateProductCommand
 {
     private string $name;
 
-    private float $price;
+    private string $price;
 
     private string $currency;
 
-    public function __construct(string $name, float $price, string $currency)
+    public function __construct(string $name, string $price, string $currency)
     {
         $this->name = $name;
         $this->price = $price;
@@ -24,7 +24,7 @@ final class CreateProductCommand
         return $this->name;
     }
 
-    public function getPrice(): float
+    public function getPrice(): string
     {
         return $this->price;
     }

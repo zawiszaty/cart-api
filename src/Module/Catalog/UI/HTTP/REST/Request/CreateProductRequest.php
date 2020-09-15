@@ -11,7 +11,7 @@ final class CreateProductRequest implements RequestDTOInterface
 {
     private string $name;
 
-    private float $price;
+    private string $price;
 
     private string $currency;
 
@@ -27,7 +27,7 @@ final class CreateProductRequest implements RequestDTOInterface
         return $this->name;
     }
 
-    public function getPrice(): float
+    public function getPrice(): string
     {
         return $this->price;
     }

@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class ChangePriceRequest implements RequestDTOInterface
 {
-    private float $price;
+    private string $price;
 
     private string $currency;
 
@@ -19,7 +19,7 @@ final class ChangePriceRequest implements RequestDTOInterface
         $this->currency = $request->request->get('currency');
     }
 
-    public function getPrice(): float
+    public function getPrice(): string
     {
         return $this->price;
     }

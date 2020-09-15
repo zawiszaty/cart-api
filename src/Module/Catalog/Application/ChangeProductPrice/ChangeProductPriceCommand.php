@@ -10,11 +10,11 @@ final class ChangeProductPriceCommand
 {
     private UuidInterface $productId;
 
-    private float $price;
+    private string $price;
 
     private string $currency;
 
-    public function __construct(UuidInterface $productId, float $price, string $currency)
+    public function __construct(UuidInterface $productId, string $price, string $currency)
     {
         $this->productId = $productId;
         $this->price = $price;
@@ -26,7 +26,7 @@ final class ChangeProductPriceCommand
         return $this->productId;
     }
 
-    public function getPrice(): float
+    public function getPrice(): string
     {
         return $this->price;
     }

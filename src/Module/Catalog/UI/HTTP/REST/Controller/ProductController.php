@@ -97,7 +97,7 @@ final class ProductController extends AbstractController
     /**
      * @Route("/api/v1/products", name="list_product", methods={"GET"})
      */
-    public function listAction(SerializerInterface $serializer, Request $request): Response
+    public function listAction(Request $request): Response
     {
         $page = $request->query->get('page', 1);
         $limit = $request->query->get('limit', 3);

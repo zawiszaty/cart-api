@@ -21,7 +21,7 @@
 					"raw": "{\n    \"name\": \"test\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:9999/api/v1/product/{productId}/name",
+					"raw": "http://localhost:9999/api/v1/product/d96ff1e7-9414-4e6c-a09d-b38ad3f8f147/name",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -31,7 +31,7 @@
 						"api",
 						"v1",
 						"product",
-						"{productId}",
+						"d96ff1e7-9414-4e6c-a09d-b38ad3f8f147",
 						"name"
 					]
 				}
@@ -51,7 +51,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"test\",\n    \"price\": 20.0,\n    \"currency\": \"PLN\"\n}"
+					"raw": "{\n    \"name\": \"I Hate Myselfie!\",\n    \"price\": \"1999\",\n    \"currency\": \"PLN\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:9999/api/v1/product",
@@ -82,10 +82,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"price\": 20.0,\n    \"currency\": \"PLN\"\n}"
+					"raw": "{\n    \"price\": \"200\",\n    \"currency\": \"PLN\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:9999/api/v1/product/{productId}/price",
+					"raw": "http://localhost:9999/api/v1/product/d96ff1e7-9414-4e6c-a09d-b38ad3f8f147/price",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -95,7 +95,7 @@
 						"api",
 						"v1",
 						"product",
-						"{productId}",
+						"d96ff1e7-9414-4e6c-a09d-b38ad3f8f147",
 						"price"
 					]
 				}
@@ -118,7 +118,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:9999/api/v1/product/{productId}",
+					"raw": "http://localhost:9999/api/v1/product/d96ff1e7-9414-4e6c-a09d-b38ad3f8f147",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -128,7 +128,7 @@
 						"api",
 						"v1",
 						"product",
-						"{productId}"
+						"d96ff1e7-9414-4e6c-a09d-b38ad3f8f147"
 					]
 				}
 			},
@@ -199,10 +199,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"product_id\": \"f394394a-9e26-4fd3-b197-e6b93c0144a9\"\n}"
+					"raw": "{\n        \"product_id\": \"d96ff1e7-9414-4e6c-a09d-b38ad3f8f147\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:9999/api/v1/cart/23a871fd-865d-4538-9197-813217654f69/add",
+					"raw": "http://localhost:9999/api/v1/cart/92745a3e-0f3a-4155-a141-0027dac593a2/add",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -212,7 +212,7 @@
 						"api",
 						"v1",
 						"cart",
-						"23a871fd-865d-4538-9197-813217654f69",
+						"92745a3e-0f3a-4155-a141-0027dac593a2",
 						"add"
 					]
 				}
@@ -232,10 +232,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"product_id\": \"f394394a-9e26-4fd3-b197-e6b93c0144a9\"\n}"
+					"raw": "{\n        \"product_id\": \"d96ff1e7-9414-4e6c-a09d-b38ad3f8f147\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:9999/api/v1/cart/23a871fd-865d-4538-9197-813217654f69/remove",
+					"raw": "http://localhost:9999/api/v1/cart/92745a3e-0f3a-4155-a141-0027dac593a2/remove",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -245,7 +245,7 @@
 						"api",
 						"v1",
 						"cart",
-						"23a871fd-865d-4538-9197-813217654f69",
+						"92745a3e-0f3a-4155-a141-0027dac593a2",
 						"remove"
 					]
 				}
@@ -258,7 +258,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9999/api/v1/cart/23a871fd-865d-4538-9197-813217654f69",
+					"raw": "http://localhost:9999/api/v1/cart/92745a3e-0f3a-4155-a141-0027dac593a2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -268,7 +268,7 @@
 						"api",
 						"v1",
 						"cart",
-						"23a871fd-865d-4538-9197-813217654f69"
+						"92745a3e-0f3a-4155-a141-0027dac593a2"
 					]
 				}
 			},

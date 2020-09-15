@@ -73,7 +73,7 @@ final class CartController extends AbstractController
     }
 
     /**
-     * @Route("/api/v1/cart/{cartId}", name="list_product", methods={"GET"})
+     * @Route("/api/v1/cart/{cartId}", name="list_cart", methods={"GET"})
      */
     public function listAction(string $cartId): Response
     {

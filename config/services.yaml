@@ -72,3 +72,7 @@ services:
             - method: addHandler
               arguments:
                 - '@App\Module\Catalog\Application\RemoveProduct\RemoveProductHandler'
+
+    App\Infrastructure\Symfony\ExceptionSubscriber:
+        tags:
+            - { name: 'kernel.event_listener', event: 'kernel.exception' }
