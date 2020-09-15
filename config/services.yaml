@@ -4,7 +4,10 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-
+    rabbitmq.host: '%env(resolve:RABBITMQ_HOST)%'
+    rabbitmq.port: '%env(resolve:RABBITMQ_PORT)%'
+    rabbitmq.user: '%env(resolve:RABBITMQ_USER)%'
+    rabbitmq.password: '%env(resolve:RABBITMQ_PASSWORD)%'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -76,3 +79,13 @@ services:
     App\Infrastructure\Symfony\ExceptionSubscriber:
         tags:
             - { name: 'kernel.event_listener', event: 'kernel.exception' }
+
+    PhpAmqpLib\Connection\AMQPStreamConnection:
+        arguments:
+            - '%rabbitmq.host%'
+            - '%rabbitmq.port%'
+            - '%rabbitmq.user%'
+            - '%rabbitmq.password%'
+            - '/'
+
+    App\Infrastructure\EventStore\Projector: '@App\Infrastructure\EventStore\RabbitProjector'

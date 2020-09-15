@@ -25,17 +25,17 @@ services:
             - db_data:/var/lib/postgresql/data
         ports:
             - 9998:5432
-#
-#    rabbit:
-#        image: "rabbitmq:3.8-rc-management-alpine"
-#        environment:
-#            RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
-#            RABBITMQ_DEFAULT_USER: "rabbitmq"
-#            RABBITMQ_DEFAULT_PASS: "rabbitmq"
-#            RABBITMQ_DEFAULT_VHOST: "/"
-#        ports:
-#            - "9997:15672"
-#            - "9996:5672"
+
+    rabbit:
+        image: "rabbitmq:3.8-rc-management-alpine"
+        environment:
+            RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+            RABBITMQ_DEFAULT_USER: "rabbitmq"
+            RABBITMQ_DEFAULT_PASS: "rabbitmq"
+            RABBITMQ_DEFAULT_VHOST: "/"
+        ports:
+            - "9997:15672"
+            - "9996:5672"
 
 volumes:
     db_data:
