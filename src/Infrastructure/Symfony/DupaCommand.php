@@ -6,8 +6,8 @@ namespace App\Infrastructure\Symfony;
 
 use App\Module\Cart\Application\AddProductToCart\AddProductToCartCommand;
 use App\Module\Cart\Application\AddProductToCart\AddProductToCartHandler;
-use App\Module\Cart\Application\CreateCart\CreateCardHandler;
 use App\Module\Cart\Application\CreateCart\CreateCartCommand;
+use App\Module\Cart\Application\CreateCart\CreateCartHandler;
 use App\Module\Cart\Domain\CartId;
 use App\Module\Cart\Domain\CartRepositoryInterface;
 use App\Module\Catalog\Application\CreateProduct\CreateProductCommand;
@@ -21,7 +21,7 @@ final class DupaCommand extends Command
 {
     protected static $defaultName = 'app:dupa';
 
-    private CreateCardHandler $createCardHandler;
+    private CreateCartHandler $createCardHandler;
 
     private CartRepositoryInterface $cartRepository;
 
@@ -31,12 +31,11 @@ final class DupaCommand extends Command
 
     public function __construct(
         string $name = null,
-        CreateCardHandler $createCardHandler,
+        CreateCartHandler $createCardHandler,
         CartRepositoryInterface $cartRepository,
         CreateProductHandler $createProductHandler,
         AddProductToCartHandler $addProductToCartHandler
-    )
-    {
+    ) {
         parent::__construct($name);
         $this->createCardHandler = $createCardHandler;
         $this->cartRepository = $cartRepository;

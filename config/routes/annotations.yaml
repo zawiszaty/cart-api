@@ -5,3 +5,11 @@ controllers:
 kernel:
     resource: ../../src/Infrastructure/Symfony/Kernel.php
     type: annotation
+
+catalog_module:
+    resource: ../../src/Module/Catalog/UI/HTTP/REST/Controller/
+    type: annotation
+
+cart_module:
+    resource: ../../src/Module/Cart/UI/HTTP/REST/Controller/
+    type: annotation

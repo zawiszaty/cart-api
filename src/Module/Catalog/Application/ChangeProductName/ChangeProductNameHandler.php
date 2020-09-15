@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\Module\Catalog\Application\ChangeProductName;
 
+use App\Infrastructure\CommandBus\CommandHandler;
 use App\Module\Catalog\Domain\ProductId;
 use App\Module\Catalog\Domain\ProductName;
 use App\Module\Catalog\Domain\ProductRepositoryInterface;
 
-final class ChangeProductNameHandler
+final class ChangeProductNameHandler extends CommandHandler
 {
     private ProductRepositoryInterface $productRepository;
 

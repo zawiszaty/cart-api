@@ -6,7 +6,7 @@ namespace App\Module\Cart\Application\RemoveProductFromCart;
 
 use Ramsey\Uuid\UuidInterface;
 
-final class RemoveProductFromCart
+final class RemoveProductFromCartCommand
 {
     public UuidInterface $cartId;
 

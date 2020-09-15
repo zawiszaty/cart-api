@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Module\Cart\Tests\Unit;
 
-use App\Module\Cart\Application\RemoveProductFromCart\RemoveProductFromCart;
+use App\Module\Cart\Application\RemoveProductFromCart\RemoveProductFromCartCommand;
 use App\Module\Cart\Application\RemoveProductFromCart\RemoveProductFromCartHandler;
 use App\Module\Cart\Domain\Cart;
 use App\Module\Cart\Domain\Event\ProductRemoveFromCartEvent;
@@ -57,7 +57,7 @@ final class RemoveProductFromCartHandlerTest extends TestCase
 
     public function testWhenRemoveProductFromCart(): void
     {
-        ($this->handler)(new RemoveProductFromCart(
+        ($this->handler)(new RemoveProductFromCartCommand(
             $this->cart->getCardId()->getId(),
             $this->product->getProductId()->getId()
         ));
@@ -71,7 +71,7 @@ final class RemoveProductFromCartHandlerTest extends TestCase
     {
         $this->expectException(ProductException::class);
 
-        ($this->handler)(new RemoveProductFromCart(
+        ($this->handler)(new RemoveProductFromCartCommand(
             $this->cart->getCardId()->getId(),
             Uuid::uuid4()
         ));
@@ -81,7 +81,7 @@ final class RemoveProductFromCartHandlerTest extends TestCase
     {
         $this->expectException(CartException::class);
 
-        ($this->handler)(new RemoveProductFromCart(
+        ($this->handler)(new RemoveProductFromCartCommand(
             Uuid::uuid4(),
             $this->product->getProductId()->getId()
         ));

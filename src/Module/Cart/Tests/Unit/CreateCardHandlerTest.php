@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Module\Cart\Tests\Unit;
 
-use App\Module\Cart\Application\CreateCart\CreateCardHandler;
 use App\Module\Cart\Application\CreateCart\CreateCartCommand;
+use App\Module\Cart\Application\CreateCart\CreateCartHandler;
 use App\Module\Cart\Domain\Event\CartCreatedEvent;
 use App\Module\Cart\Infrastructure\Repository\InMemoryCartRepository;
 use PHPUnit\Framework\TestCase;
@@ -15,13 +15,13 @@ final class CreateCardHandlerTest extends TestCase
 {
     private InMemoryCartRepository $cartRepository;
 
-    private CreateCardHandler $handler;
+    private CreateCartHandler $handler;
 
     protected function setUp()
     {
         parent::setUp();
         $this->cartRepository = new InMemoryCartRepository();
-        $this->handler = new CreateCardHandler($this->cartRepository);
+        $this->handler = new CreateCartHandler($this->cartRepository);
     }
 
     public function testWhenCartIsCreated(): void

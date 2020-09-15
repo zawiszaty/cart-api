@@ -67,17 +67,17 @@ final class CartProjectionTest extends KernelTestCase
         $this->em->persist($cart);
         $this->em->flush();
         $productId = ProductId::generate();
-
         $event = new ProductAddedToCartEvent(
             $id,
             new Product($productId, ProductPrice::fromString('20', 'PLN'))
         );
+
         $this->projection->whenProductAddedToCart($event);
 
         $cart = $this->repo->find($id->getId());
 
         self::assertInstanceOf(CartReadModel::class, $cart);
-        self::assertSame(sprintf('[{"id":"%s","price":"20","currency":"PLN"}]', $productId->getId()
+        self::assertSame(sprintf('[{"id":"%s","price":"20","price_snapshot":"20","currency":"PLN","currency_snapshot":"PLN"}]', $productId->getId()
             ->toString()), $cart->getProducts());
     }
 

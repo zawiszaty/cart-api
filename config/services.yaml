@@ -48,3 +48,27 @@ services:
     App\Infrastructure\Symfony\JsonBodyParserSubscriber:
         tags:
             - { name: 'kernel.event_listener', event: 'kernel.request', method: 'onKernelRequest', priority: 100 }
+
+    App\Infrastructure\CommandBus\CommandBus:
+        calls:
+            - method: addHandler
+              arguments:
+                - '@App\Module\Cart\Application\CreateCart\CreateCartHandler'
+            - method: addHandler
+              arguments:
+                - '@App\Module\Cart\Application\AddProductToCart\AddProductToCartHandler'
+            - method: addHandler
+              arguments:
+                - '@App\Module\Cart\Application\RemoveProductFromCart\RemoveProductFromCartHandler'
+            - method: addHandler
+              arguments:
+                - '@App\Module\Catalog\Application\CreateProduct\CreateProductHandler'
+            - method: addHandler
+              arguments:
+                - '@App\Module\Catalog\Application\ChangeProductName\ChangeProductNameHandler'
+            - method: addHandler
+              arguments:
+                - '@App\Module\Catalog\Application\ChangeProductPrice\ChangeProductPriceHandler'
+            - method: addHandler
+              arguments:
+                - '@App\Module\Catalog\Application\RemoveProduct\RemoveProductHandler'

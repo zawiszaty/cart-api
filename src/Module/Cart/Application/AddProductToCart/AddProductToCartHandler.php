@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Module\Cart\Application\AddProductToCart;
 
+use App\Infrastructure\CommandBus\CommandHandler;
 use App\Module\Cart\Domain\Cart;
 use App\Module\Cart\Domain\CartId;
 use App\Module\Cart\Domain\CartRepositoryInterface;
@@ -14,7 +15,7 @@ use App\Module\Cart\Domain\ProductId;
 use App\Module\Cart\Domain\ProductPrice;
 use App\Module\Catalog\Shared\CatalogApi;
 
-final class AddProductToCartHandler
+final class AddProductToCartHandler extends CommandHandler
 {
     private CartRepositoryInterface $cartRepository;
 

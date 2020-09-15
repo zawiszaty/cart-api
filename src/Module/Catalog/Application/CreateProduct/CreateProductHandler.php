@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace App\Module\Catalog\Application\CreateProduct;
 
+use App\Infrastructure\CommandBus\CommandHandler;
 use App\Module\Catalog\Domain\Product;
 use App\Module\Catalog\Domain\ProductName;
 use App\Module\Catalog\Domain\ProductPrice;
 use App\Module\Catalog\Domain\ProductRepositoryInterface;
 
-final class CreateProductHandler
+final class CreateProductHandler extends CommandHandler
 {
     private ProductRepositoryInterface $productRepository;
 

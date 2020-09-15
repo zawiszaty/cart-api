@@ -44,7 +44,9 @@ final class CartProjection
         $products[] = [
             'id' => $product->getProductId()->getId()->toString(),
             'price' => $product->getPrice()->getPrice()->getAmount(),
+            'price_snapshot' => $product->getProductPriceSnapshot()->getPrice()->getAmount(),
             'currency' => $product->getPrice()->getPrice()->getCurrency()->getCode(),
+            'currency_snapshot' => $product->getProductPriceSnapshot()->getPrice()->getCurrency()->getCode(),
         ];
         $cart->setProducts(json_encode($products, JSON_THROW_ON_ERROR));
         $this->entityManager->flush();
@@ -61,12 +63,12 @@ final class CartProjection
         }
 
         $products = json_decode($cart->getProducts(), true, 512, JSON_THROW_ON_ERROR);
-
         foreach ($products as $index => $product) {
             if ($product['id'] === $event->getProduct()->getProductId()->getId()->toString()) {
                 unset($products[$index]);
             }
         }
+
         $cart->setProducts(json_encode($products, JSON_THROW_ON_ERROR));
         $this->entityManager->flush();
     }

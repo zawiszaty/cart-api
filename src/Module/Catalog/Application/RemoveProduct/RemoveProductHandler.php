@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace App\Module\Catalog\Application\RemoveProduct;
 
+use App\Infrastructure\CommandBus\CommandHandler;
 use App\Module\Catalog\Domain\ProductId;
 use App\Module\Catalog\Domain\ProductRepositoryInterface;
 
-final class RemoveProductHandler
+final class RemoveProductHandler extends CommandHandler
 {
     private ProductRepositoryInterface $productRepository;
 

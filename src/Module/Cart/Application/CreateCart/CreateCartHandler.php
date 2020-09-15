@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace App\Module\Cart\Application\CreateCart;
 
+use App\Infrastructure\CommandBus\CommandHandler;
 use App\Module\Cart\Domain\Cart;
 use App\Module\Cart\Domain\CartRepositoryInterface;
 
-final class CreateCardHandler
+final class CreateCartHandler extends CommandHandler
 {
     private CartRepositoryInterface $cartRepository;
 
