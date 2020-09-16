@@ -77,15 +77,14 @@ final class Cart extends AggregateRoot
             $this->products = $this->priceModifiers->modify($this->products);
         }
         if ($event instanceof ProductRemoveFromCartEvent) {
-            unset($this->products[$event->getProduct()->getProductId()->getId()->toString()]);
+            unset($this->products[$event->getProduct()->getProductId()->toString()]);
             $productSnapshots = [];
 
             foreach ($this->products as $product) {
-                $productSnapshots[$product->getProductId()->getId()
-                    ->toString()] = $product->withPrice(ProductPrice::fromString(
-                        $product->getProductPriceSnapshot()->getPrice()->getAmount(),
-                        $product->getProductPriceSnapshot()->getPrice()->getCurrency()->getCode()
-                    ));
+                $productSnapshots[$product->getProductId()->toString()] = $product->withPrice(ProductPrice::fromString(
+                    $product->getProductPriceSnapshot()->getPrice()->getAmount(),
+                    $product->getProductPriceSnapshot()->getPrice()->getCurrency()->getCode()
+                ));
             }
             $this->products = $this->priceModifiers->modify($productSnapshots);
         }

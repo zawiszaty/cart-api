@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace App\Infrastructure\Symfony;
-
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -37,23 +35,22 @@ class ExceptionSubscriber implements EventSubscriberInterface
     {
         $error = [
             'errors' => [
-                'title'  => str_replace('\\', '.', \get_class($exception)),
+                'title' => str_replace('\\', '.', \get_class($exception)),
                 'detail' => $this->getExceptionMessage($exception),
-                'code'   => $exception->getCode(),
+                'code' => $exception->getCode(),
                 'status' => $response->getStatusCode(),
             ],
         ];
 
-        if ('dev' === $this->environment)
-        {
+        if ('dev' === $this->environment) {
             $error = array_merge(
                 $error,
                 [
                     'meta' => [
-                        'file'        => $exception->getFile(),
-                        'line'        => $exception->getLine(),
-                        'message'     => $exception->getMessage(),
-                        'trace'       => $exception->getTrace(),
+                        'file' => $exception->getFile(),
+                        'line' => $exception->getLine(),
+                        'message' => $exception->getMessage(),
+                        'trace' => $exception->getTrace(),
                         'traceString' => $exception->getTraceAsString(),
                     ],
                 ]
@@ -72,8 +69,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
     {
         $statusCode = Response::HTTP_INTERNAL_SERVER_ERROR;
 
-        switch (true)
-        {
+        switch (true) {
             case $exception instanceof HttpExceptionInterface:
                 $statusCode = $exception->getStatusCode();
 

@@ -28,14 +28,14 @@ final class RemoveProductFromCartHandler extends CommandHandler
 
     public function __invoke(RemoveProductFromCartCommand $command): void
     {
-        $cart = $this->cartRepository->get(CartId::fromString($command->getCartId()->toString()));
+        $cart = $this->cartRepository->get(CartId::fromUuid($command->getCartId()));
         $product = $this->catalogApi->getProduct($command->getProductId());
 
         if (false === $cart instanceof Cart) {
             throw CartException::fromMissingCart();
         }
         $cart->removeProductFromCart(new Product(
-            ProductId::fromString($product->getProductId()->toString()),
+            ProductId::fromUuid($product->getProductId()),
             ProductPrice::fromString($product->getPrice()->getAmount(), $product->getPrice()->getCurrency()
                 ->getCode())
         ));

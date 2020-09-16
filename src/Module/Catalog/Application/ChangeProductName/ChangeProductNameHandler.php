@@ -20,7 +20,7 @@ final class ChangeProductNameHandler extends CommandHandler
 
     public function __invoke(ChangeProductNameCommand $command): void
     {
-        $product = $this->productRepository->get(ProductId::fromString($command->getProductId()->toString()));
+        $product = $this->productRepository->get(ProductId::fromUuid($command->getProductId()));
         $product->changeName(ProductName::fromString($command->getName()));
         $this->productRepository->save($product);
     }

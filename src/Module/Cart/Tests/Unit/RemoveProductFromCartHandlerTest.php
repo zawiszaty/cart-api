@@ -62,7 +62,7 @@ final class RemoveProductFromCartHandlerTest extends TestCase
             $this->product->getProductId()->getId()
         ));
 
-        $events = $this->cartRepository->getEvents()[$this->cart->getCardId()->getId()->toString()];
+        $events = $this->cartRepository->getEvents()[$this->cart->getCardId()->toString()];
         self::assertCount(3, $events);
         self::assertInstanceOf(ProductRemoveFromCartEvent::class, $events[2]);
     }

@@ -25,7 +25,7 @@ final class CreateProductHandlerTest extends TestCase
 
     public function testWhenCreateProduct(): void
     {
-        ($this->handler)(new CreateProductCommand('test', 20.0, 'PLN'));
+        ($this->handler)(new CreateProductCommand('test', '300', 'PLN'));
 
         $events = $this->repo->getEvents()[array_keys($this->repo->getEvents())[0]];
         self::assertCount(1, $events);

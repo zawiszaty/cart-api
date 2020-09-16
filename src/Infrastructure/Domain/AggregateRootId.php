@@ -39,4 +39,14 @@ class AggregateRootId
     {
         return $this->uuid->equals($id->getId());
     }
+
+    public function toString(): string
+    {
+        return $this->uuid->toString();
+    }
+
+    public static function fromUuid(UuidInterface $id): self
+    {
+        return new static($id);
+    }
 }

@@ -32,13 +32,13 @@ final class AddProductToCartHandler extends CommandHandler
 
     public function __invoke(AddProductToCartCommand $command): void
     {
-        $cart = $this->cartRepository->get(CartId::fromString($command->getCartId()->toString()));
+        $cart = $this->cartRepository->get(CartId::fromUuid($command->getCartId()));
 
         if (false === $cart instanceof Cart) {
             throw CartException::fromMissingCart();
         }
 
-        if ($this->availabilityFinder->isAvailable(ProductId::fromString($command->getProductId()->toString()))) {
+        if ($this->availabilityFinder->isAvailable(ProductId::fromUuid($command->getProductId()))) {
             $product = $this->catalogApi->getProduct($command->getProductId());
 
             $cart->addProductToCart(new Product(

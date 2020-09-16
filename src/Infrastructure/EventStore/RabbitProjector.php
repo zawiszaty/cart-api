@@ -16,8 +16,7 @@ final class RabbitProjector implements Projector
 
     public function __construct(
         AMQPStreamConnection $connection
-    )
-    {
+    ) {
         $this->channel = $connection->channel();
         $this->channel->exchange_declare(self::SHARED_EVENTS, 'fanout', false, false, false);
     }

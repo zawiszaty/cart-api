@@ -57,7 +57,7 @@ final class AddProductToCartHandlerTest extends TestCase
             $this->product->getProductId()->getId()
         ));
 
-        $events = $this->cartRepository->getEvents()[$this->cart->getCardId()->getId()->toString()];
+        $events = $this->cartRepository->getEvents()[$this->cart->getCardId()->toString()];
         self::assertSame(2, count($events));
         self::assertInstanceOf(ProductAddedToCartEvent::class, $events[1]);
     }

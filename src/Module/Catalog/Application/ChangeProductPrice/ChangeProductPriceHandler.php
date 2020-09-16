@@ -20,7 +20,7 @@ final class ChangeProductPriceHandler extends CommandHandler
 
     public function __invoke(ChangeProductPriceCommand $command): void
     {
-        $product = $this->productRepository->get(ProductId::fromString($command->getProductId()->toString()));
+        $product = $this->productRepository->get(ProductId::fromUuid($command->getProductId()));
         $product->changePrice(ProductPrice::fromString($command->getPrice(), $command->getCurrency()));
         $this->productRepository->save($product);
     }

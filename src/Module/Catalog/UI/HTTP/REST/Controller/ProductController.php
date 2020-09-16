@@ -13,7 +13,6 @@ use App\Module\Catalog\Application\RemoveProduct\RemoveProductCommand;
 use App\Module\Catalog\UI\HTTP\REST\Request\ChangeNameRequest;
 use App\Module\Catalog\UI\HTTP\REST\Request\ChangePriceRequest;
 use App\Module\Catalog\UI\HTTP\REST\Request\CreateProductRequest;
-use JMS\Serializer\SerializerInterface;
 use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

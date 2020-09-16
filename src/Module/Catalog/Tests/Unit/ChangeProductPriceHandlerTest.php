@@ -31,11 +31,11 @@ final class ChangeProductPriceHandlerTest extends TestCase
 
         ($this->handler)(new ChangeProductPriceCommand(
             $product->getProductId()->getId(),
-            30.0,
+            '300',
             'PLN'
         ));
 
-        $events = $this->repo->getEvents()[$product->getProductId()->getId()->toString()];
+        $events = $this->repo->getEvents()[$product->getProductId()->toString()];
         self::assertCount(2, $events);
         self::assertInstanceOf(ProductPriceChangedEvent::class, $events[1]);
     }

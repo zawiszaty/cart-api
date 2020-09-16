@@ -34,7 +34,7 @@ final class ChangeProductNameHandlerTest extends TestCase
             'test2'
         ));
 
-        $events = $this->repo->getEvents()[$product->getProductId()->getId()->toString()];
+        $events = $this->repo->getEvents()[$product->getProductId()->toString()];
         self::assertCount(2, $events);
         self::assertInstanceOf(ProductNameChangedEvent::class, $events[1]);
     }

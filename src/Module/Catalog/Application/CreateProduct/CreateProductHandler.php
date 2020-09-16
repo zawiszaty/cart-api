@@ -23,7 +23,7 @@ final class CreateProductHandler extends CommandHandler
     {
         $product = Product::create(
             ProductName::fromString($command->getName()),
-            ProductPrice::fromString((string) $command->getPrice(), $command->getCurrency())
+            ProductPrice::fromString($command->getPrice(), $command->getCurrency())
         );
         $this->productRepository->save($product);
     }

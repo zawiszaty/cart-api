@@ -26,7 +26,7 @@ final class ProjectorCommand extends Command
         parent::__construct($name);
 
         $this->projector = $projector;
-        $this->channel   = $connection->channel();
+        $this->channel = $connection->channel();
         $this->channel->exchange_declare(self::SHARED_EVENTS, 'fanout', false, false, false);
     }
 
@@ -38,13 +38,12 @@ final class ProjectorCommand extends Command
         $this->channel->queue_bind('projection', self::SHARED_EVENTS, '#');
         $this->channel->basic_consume('projection', '', false, true, false, false, function (AMQPMessage $msg) use ($output) {
             $decodesMessage = json_decode($msg->getBody(), true, 512, JSON_THROW_ON_ERROR);
-            $event          = call_user_func($msg->getRoutingKey() . '::fromArray', $decodesMessage);
+            $event = call_user_func($msg->getRoutingKey().'::fromArray', $decodesMessage);
             $this->projector->apply($event);
             $output->write("Message consume\n");
         });
 
-        while ($this->channel->is_consuming())
-        {
+        while ($this->channel->is_consuming()) {
             $this->channel->wait();
         }
     }

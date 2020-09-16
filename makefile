@@ -40,3 +40,7 @@ phpstan:
 .Phony: psalm
 psalm:
 	docker-compose exec php bin/psalm.phar
+
+.Phony: projection
+projection:
+	docker-compose exec php bin/console worker:projection
