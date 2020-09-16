@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class ProjectorCommand extends Command
 {
-    private const SHARED_EVENTS = 'shared_events';
+    private const PROJECTION = 'projection';
     protected static $defaultName = 'worker:projection';
 
     private InMemoryProjector $projector;
@@ -27,15 +27,15 @@ final class ProjectorCommand extends Command
 
         $this->projector = $projector;
         $this->channel = $connection->channel();
-        $this->channel->exchange_declare(self::SHARED_EVENTS, 'fanout', false, false, false);
+        $this->channel->exchange_declare(self::PROJECTION, 'fanout', false, false, false);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->write("Consuming \n");
-        $this->channel->exchange_declare(self::SHARED_EVENTS, 'fanout', false, false, false);
+        $this->channel->exchange_declare(self::PROJECTION, 'fanout', false, false, false);
         $this->channel->queue_declare('projection', false, false, false, false);
-        $this->channel->queue_bind('projection', self::SHARED_EVENTS, '#');
+        $this->channel->queue_bind('projection', self::PROJECTION, '#');
         $this->channel->basic_consume('projection', '', false, true, false, false, function (AMQPMessage $msg) use ($output) {
             $decodesMessage = json_decode($msg->getBody(), true, 512, JSON_THROW_ON_ERROR);
             $event = call_user_func($msg->getRoutingKey().'::fromArray', $decodesMessage);
