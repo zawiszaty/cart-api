@@ -16,11 +16,11 @@ final class ProductDiscountModifier implements ProductPriceModifier
 
         /** @var Product $product */
         foreach ($products as $product) {
-            $price = $product->getPrice();
+            $price    = $product->getPrice();
             $newPrice = $price->getPrice()->divide(2);
-            $product = $product->withPrice(ProductPrice::fromString($newPrice->getAmount(), $newPrice->getCurrency()
+            $product  = $product->withPrice(ProductPrice::fromString($newPrice->getAmount(), $newPrice->getCurrency()
                 ->getCode()));
-            $modifiedProducts[$product->getProductId()->getId()->toString()] = $product;
+            $modifiedProducts[(string) $product->getProductId()] = $product;
         }
 
         return $modifiedProducts;

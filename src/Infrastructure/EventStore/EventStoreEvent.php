@@ -42,12 +42,18 @@ final class EventStoreEvent
      */
     private string $eventName;
 
+    /**
+     * @ORM\Column(type="boolean", options={"default" : 0})
+     */
+    private bool $relayed;
+
     public function __construct(UuidInterface $aggregateRootId, string $aggregateName, string $event, string $eventName)
     {
         $this->aggregateRootId = $aggregateRootId;
-        $this->aggregateName = $aggregateName;
-        $this->event = $event;
-        $this->eventName = $eventName;
+        $this->aggregateName   = $aggregateName;
+        $this->event           = $event;
+        $this->eventName       = $eventName;
+        $this->relayed         = false;
     }
 
     public function getId(): UuidInterface
@@ -73,5 +79,10 @@ final class EventStoreEvent
     public function getEventName(): string
     {
         return $this->eventName;
+    }
+
+    public function relay(): void
+    {
+        $this->relayed = true;
     }
 }

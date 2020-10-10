@@ -24,8 +24,14 @@ final class Product
         return $this->productId;
     }
 
-    public function getPrice(): Money
+    public function getPriceAmount(): string
     {
-        return $this->price;
+        return $this->price->getAmount();
     }
+
+    public function getCurrencyCode(): string
+    {
+        return $this->price->getCurrency()->getCode();
+    }
+
 }

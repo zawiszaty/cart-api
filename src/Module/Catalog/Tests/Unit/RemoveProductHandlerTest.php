@@ -31,7 +31,7 @@ final class RemoveProductHandlerTest extends TestCase
 
         ($this->handler)(new RemoveProductCommand($product->getProductId()->getId()));
 
-        $events = $this->repo->getEvents()[$product->getProductId()->getId()->toString()];
+        $events = $this->repo->getEvents()[(string) $product->getProductId()];
         self::assertCount(2, $events);
         self::assertInstanceOf(ProductRemovedEvent::class, $events[1]);
     }

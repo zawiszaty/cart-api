@@ -49,4 +49,9 @@ class AggregateRootId
     {
         return new static($id);
     }
+
+    public function __toString()
+    {
+        return (string) $this->getId();
+    }
 }

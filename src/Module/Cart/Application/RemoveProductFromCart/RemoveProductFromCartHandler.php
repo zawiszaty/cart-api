@@ -36,8 +36,7 @@ final class RemoveProductFromCartHandler extends CommandHandler
         }
         $cart->removeProductFromCart(new Product(
             ProductId::fromUuid($product->getProductId()),
-            ProductPrice::fromString($product->getPrice()->getAmount(), $product->getPrice()->getCurrency()
-                ->getCode())
+            ProductPrice::fromString($product->getPriceAmount(), $product->getCurrencyCode())
         ));
         $this->cartRepository->save($cart);
     }

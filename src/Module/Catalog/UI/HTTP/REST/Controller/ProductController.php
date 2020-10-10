@@ -49,9 +49,9 @@ final class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/api/v1/product/{productId}/name", name="update_product_name", methods={"PATCH"})
+     * @Route("/api/v1/product/{productId}/name", name="change_product_name", methods={"PATCH"})
      */
-    public function updateNameAction(ChangeNameRequest $request, string $productId): Response
+    public function changeNameAction(ChangeNameRequest $request, string $productId): Response
     {
         $command = new ChangeProductNameCommand(
             Uuid::fromString($productId),
@@ -64,9 +64,9 @@ final class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/api/v1/product/{productId}/price", name="update_product_price", methods={"PATCH"})
+     * @Route("/api/v1/product/{productId}/price", name="change_product_price", methods={"PATCH"})
      */
-    public function updatePriceAction(ChangePriceRequest $request, string $productId): Response
+    public function changePriceAction(ChangePriceRequest $request, string $productId): Response
     {
         $command = new ChangeProductPriceCommand(
             Uuid::fromString($productId),

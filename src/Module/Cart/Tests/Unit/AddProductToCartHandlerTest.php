@@ -11,11 +11,11 @@ use App\Module\Cart\Domain\Event\ProductAddedToCartEvent;
 use App\Module\Cart\Domain\Exception\CartException;
 use App\Module\Cart\Infrastructure\Availability\ProductAvailabilityFinder;
 use App\Module\Cart\Infrastructure\Repository\InMemoryCartRepository;
+use App\Module\Cart\Tests\Unit\TestDoubles\CartFixture;
 use App\Module\Catalog\Domain\Product;
-use App\Module\Catalog\Domain\ProductName;
-use App\Module\Catalog\Domain\ProductPrice;
 use App\Module\Catalog\Infrastructure\Repository\InmemoryProductRepository;
 use App\Module\Catalog\Shared\ModuleCatalogApi;
+use App\Module\Catalog\Tests\TestDoubles\ProductMother;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
 
@@ -36,16 +36,16 @@ final class AddProductToCartHandlerTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->cartRepository = new InMemoryCartRepository();
+        $this->cartRepository    = new InMemoryCartRepository();
         $this->productRepository = new InmemoryProductRepository();
-        $this->catalogApi = new ModuleCatalogApi($this->productRepository);
-        $this->handler = new AddProductToCartHandler(
+        $this->catalogApi        = new ModuleCatalogApi($this->productRepository);
+        $this->handler           = new AddProductToCartHandler(
             $this->cartRepository,
             $this->catalogApi,
             new ProductAvailabilityFinder($this->catalogApi)
         );
-        $this->cart = Cart::create(Uuid::uuid4());
-        $this->product = Product::create(ProductName::fromString('test'), ProductPrice::fromString('20', 'PLN'));
+        $this->cart              = CartFixture::create()->getCart();
+        $this->product           = ProductMother::create();
         $this->productRepository->save($this->product);
         $this->cartRepository->save($this->cart);
     }
@@ -57,8 +57,8 @@ final class AddProductToCartHandlerTest extends TestCase
             $this->product->getProductId()->getId()
         ));
 
-        $events = $this->cartRepository->getEvents()[$this->cart->getCardId()->toString()];
-        self::assertSame(2, count($events));
+        $events = $this->cartRepository->getEvents()[(string) $this->cart->getCardId()];
+        self::assertCount(2, $events);
         self::assertInstanceOf(ProductAddedToCartEvent::class, $events[1]);
     }
 

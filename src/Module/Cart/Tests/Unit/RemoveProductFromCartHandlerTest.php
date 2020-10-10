@@ -9,14 +9,13 @@ use App\Module\Cart\Application\RemoveProductFromCart\RemoveProductFromCartHandl
 use App\Module\Cart\Domain\Cart;
 use App\Module\Cart\Domain\Event\ProductRemoveFromCartEvent;
 use App\Module\Cart\Domain\Exception\CartException;
-use App\Module\Cart\Domain\ProductId;
 use App\Module\Cart\Infrastructure\Repository\InMemoryCartRepository;
+use App\Module\Cart\Tests\Unit\TestDoubles\CartFixture;
 use App\Module\Catalog\Domain\Product;
-use App\Module\Catalog\Domain\ProductName;
-use App\Module\Catalog\Domain\ProductPrice;
 use App\Module\Catalog\Infrastructure\Repository\InmemoryProductRepository;
 use App\Module\Catalog\Shared\IO\ProductException;
 use App\Module\Catalog\Shared\ModuleCatalogApi;
+use App\Module\Catalog\Tests\TestDoubles\ProductMother;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
 
@@ -37,20 +36,17 @@ final class RemoveProductFromCartHandlerTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->cartRepository = new InMemoryCartRepository();
+        $this->cartRepository    = new InMemoryCartRepository();
         $this->productRepository = new InmemoryProductRepository();
-        $this->catalogApi = new ModuleCatalogApi($this->productRepository);
-        $this->handler = new RemoveProductFromCartHandler(
+        $this->catalogApi        = new ModuleCatalogApi($this->productRepository);
+        $this->handler           = new RemoveProductFromCartHandler(
             $this->cartRepository,
             $this->catalogApi
         );
-        $this->cart = Cart::create(Uuid::uuid4());
-        $this->product = Product::create(ProductName::fromString('test'), ProductPrice::fromString('20', 'PLN'));
-        $this->cart->addProductToCart(new \App\Module\Cart\Domain\Product(
-            ProductId::fromString($this->product->getProductId()->getId()->toString()),
-            \App\Module\Cart\Domain\ProductPrice::fromString($this->product->getPrice()->getPrice()
-                ->getAmount(), $this->product->getPrice()->getPrice()->getCurrency()->getCode())
-        ));
+        $cartFixture             = CartFixture::create();
+        $this->cart              = $cartFixture->getCart();
+        $this->product           = ProductMother::create('test');
+        $cartFixture->withProduct($this->product->getProductId()->toString());
         $this->productRepository->save($this->product);
         $this->cartRepository->save($this->cart);
     }
@@ -62,7 +58,7 @@ final class RemoveProductFromCartHandlerTest extends TestCase
             $this->product->getProductId()->getId()
         ));
 
-        $events = $this->cartRepository->getEvents()[$this->cart->getCardId()->toString()];
+        $events = $this->cartRepository->getEvents()[(string) $this->cart->getCardId()];
         self::assertCount(3, $events);
         self::assertInstanceOf(ProductRemoveFromCartEvent::class, $events[2]);
     }

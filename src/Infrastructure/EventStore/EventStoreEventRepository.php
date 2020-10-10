@@ -13,4 +13,9 @@ final class EventStoreEventRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, EventStoreEvent::class);
     }
+
+    public function save(): void
+    {
+        $this->_em->flush();
+    }
 }

@@ -88,4 +88,4 @@ services:
             - '%rabbitmq.password%'
             - '/'
 
-    App\Infrastructure\EventStore\Projector: '@App\Infrastructure\EventStore\RabbitProjector'
+    App\Infrastructure\EventStore\Projector: '@App\Infrastructure\EventStore\OutboxProjector'

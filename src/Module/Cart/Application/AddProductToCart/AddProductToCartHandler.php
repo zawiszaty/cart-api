@@ -40,11 +40,9 @@ final class AddProductToCartHandler extends CommandHandler
 
         if ($this->availabilityFinder->isAvailable(ProductId::fromUuid($command->getProductId()))) {
             $product = $this->catalogApi->getProduct($command->getProductId());
-
             $cart->addProductToCart(new Product(
-                ProductId::fromString($product->getProductId()->toString()),
-                ProductPrice::fromString($product->getPrice()->getAmount(), $product->getPrice()->getCurrency()
-                    ->getCode())
+                ProductId::fromString((string) $product->getProductId()),
+                ProductPrice::fromString($product->getPriceAmount(), $product->getCurrencyCode())
             ));
             $this->cartRepository->save($cart);
 
