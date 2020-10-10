@@ -27,4 +27,4 @@ COPY ./.docker/supervisord/supervisord.conf /etc/supervisord.conf
 
 WORKDIR /var/www/html
 
-ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf", "-n"]
+ENTRYPOINT ["sh", "/var/www/html/.docker/entrypoint.sh"]

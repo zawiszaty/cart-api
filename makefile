@@ -30,7 +30,7 @@ mutation:
 
 .Phony: test
 test:
-	docker-compose exec php bin/phpunit
+	docker-compose exec php vendor/bin/phpunit
 
 
 .Phony: phpstan

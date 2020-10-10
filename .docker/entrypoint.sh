@@ -5,3 +5,7 @@ if [[ "${SKIP_COMPOSER_INSTALL:0}" != "1" ]]; then
 	lastExiteCode=$?
 	if [[ "$lastExiteCode" != "0" ]]; then exit ${lastExiteCode}; fi;
 fi;
+
+mkdir -p /run/nginx
+nginx
+/usr/bin/supervisord -c /etc/supervisord.conf -n

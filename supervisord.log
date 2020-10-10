@@ -1,0 +1,10 @@
+2020-10-10 18:59:38,113 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2020-10-10 18:59:38,125 INFO RPC interface 'supervisor' initialized
+2020-10-10 18:59:38,126 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2020-10-10 18:59:38,132 INFO supervisord started with pid 211
+2020-10-10 18:59:39,137 INFO spawned: 'php-fpm' with pid 216
+2020-10-10 18:59:39,142 INFO spawned: 'projection_outbox' with pid 217
+2020-10-10 18:59:39,149 INFO spawned: 'projection_worker' with pid 218
+2020-10-10 18:59:40,198 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-10-10 18:59:40,203 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-10-10 18:59:40,205 INFO success: projection_worker entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
