@@ -5,4 +5,5 @@ jobs:
         steps:
             - checkout
             - run: make start
+            - run: make db
             - run: make test
