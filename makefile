@@ -2,6 +2,7 @@
 start:
 	docker-compose up -d
 	docker-compose exec -T php sh ./.docker/wait_for_nginx.sh
+	db
 
 .Phony: php
 php:
@@ -30,7 +31,7 @@ mutation:
 
 .Phony: test
 test:
-	docker-compose exec php vendor/bin/phpunit
+	docker-compose exec php ./vendor/bin/phpunit
 
 
 .Phony: phpstan

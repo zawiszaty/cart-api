@@ -17,3 +17,11 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+.terraform/terraform.tfvars
+/.terraform/.terraform/
+./supervisord.log
+./supervisord.pid
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###

@@ -17,7 +17,7 @@ final class CreateCardHandlerTest extends TestCase
 
     private CreateCartHandler $handler;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->cartRepository = new InMemoryCartRepository();

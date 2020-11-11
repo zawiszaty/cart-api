@@ -33,7 +33,7 @@ final class AddProductToCartHandlerTest extends TestCase
 
     private Product $product;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->cartRepository    = new InMemoryCartRepository();

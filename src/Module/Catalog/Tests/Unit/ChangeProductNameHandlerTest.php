@@ -17,12 +17,12 @@ final class ChangeProductNameHandlerTest extends TestCase
 
     private ChangeProductNameHandler $handler;
 
-    protected function setUp()
-    {
-        parent::setUp();
-        $this->repo = new InmemoryProductRepository();
-        $this->handler = new ChangeProductNameHandler($this->repo);
-    }
+   protected function setUp(): void
+   {
+       parent::setUp();
+       $this->repo    = new InmemoryProductRepository();
+       $this->handler = new ChangeProductNameHandler($this->repo);
+   }
 
     public function testWhenChangeProductName(): void
     {

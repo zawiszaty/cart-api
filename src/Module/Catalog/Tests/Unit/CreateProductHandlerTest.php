@@ -16,10 +16,10 @@ final class CreateProductHandlerTest extends TestCase
 
     private CreateProductHandler $handler;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
-        $this->repo = new InmemoryProductRepository();
+        $this->repo    = new InmemoryProductRepository();
         $this->handler = new CreateProductHandler($this->repo);
     }
 

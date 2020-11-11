@@ -17,7 +17,7 @@ final class ChangeProductPriceHandlerTest extends TestCase
 
     private ChangeProductPriceHandler $handler;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->repo = new InmemoryProductRepository();

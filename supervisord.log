@@ -8,3 +8,438 @@
 2020-10-10 18:59:40,198 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2020-10-10 18:59:40,203 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2020-10-10 18:59:40,205 INFO success: projection_worker entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-10-12 09:03:35,968 INFO exited: projection_worker (exit status 32; not expected)
+2020-10-12 09:03:37,226 INFO spawned: 'projection_worker' with pid 646
+2020-10-12 09:03:38,230 INFO success: projection_worker entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:08:55,387 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2020-11-11 14:08:55,394 INFO RPC interface 'supervisor' initialized
+2020-11-11 14:08:55,395 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2020-11-11 14:08:55,401 INFO supervisord started with pid 177
+2020-11-11 14:08:56,404 INFO spawned: 'php-fpm' with pid 186
+2020-11-11 14:08:56,408 INFO spawned: 'projection_outbox' with pid 187
+2020-11-11 14:08:56,413 INFO spawned: 'projection_worker' with pid 188
+2020-11-11 14:08:57,471 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:08:57,473 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:08:57,474 INFO success: projection_worker entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:08:59,574 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:00,579 INFO spawned: 'projection_outbox' with pid 205
+2020-11-11 14:09:01,581 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:02,808 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:03,813 INFO spawned: 'projection_outbox' with pid 212
+2020-11-11 14:09:04,816 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:06,198 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:07,203 INFO spawned: 'projection_outbox' with pid 219
+2020-11-11 14:09:08,202 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:09,242 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:10,247 INFO spawned: 'projection_outbox' with pid 226
+2020-11-11 14:09:11,250 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:12,718 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:13,690 INFO spawned: 'projection_outbox' with pid 233
+2020-11-11 14:09:14,785 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:15,819 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:16,825 INFO spawned: 'projection_outbox' with pid 240
+2020-11-11 14:09:17,906 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:18,943 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:19,950 INFO spawned: 'projection_outbox' with pid 247
+2020-11-11 14:09:20,985 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:22,015 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:23,025 INFO spawned: 'projection_outbox' with pid 254
+2020-11-11 14:09:24,023 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:25,039 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:26,047 INFO spawned: 'projection_outbox' with pid 261
+2020-11-11 14:09:27,135 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:28,164 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:29,175 INFO spawned: 'projection_outbox' with pid 268
+2020-11-11 14:09:30,239 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:31,285 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:32,294 INFO spawned: 'projection_outbox' with pid 275
+2020-11-11 14:09:33,294 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:34,327 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:35,333 INFO spawned: 'projection_outbox' with pid 282
+2020-11-11 14:09:36,339 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:37,370 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:38,377 INFO spawned: 'projection_outbox' with pid 289
+2020-11-11 14:09:39,427 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:40,463 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:41,467 INFO spawned: 'projection_outbox' with pid 296
+2020-11-11 14:09:42,512 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:43,542 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:44,517 INFO spawned: 'projection_outbox' with pid 303
+2020-11-11 14:09:45,527 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:46,732 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:47,738 INFO spawned: 'projection_outbox' with pid 310
+2020-11-11 14:09:48,831 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:49,867 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:50,872 INFO spawned: 'projection_outbox' with pid 317
+2020-11-11 14:09:51,876 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:53,602 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:54,608 INFO spawned: 'projection_outbox' with pid 324
+2020-11-11 14:09:55,651 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:09:56,683 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:09:57,688 INFO spawned: 'projection_outbox' with pid 336
+2020-11-11 14:09:58,691 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:00,071 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:01,077 INFO spawned: 'projection_outbox' with pid 343
+2020-11-11 14:10:02,087 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:03,130 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:04,136 INFO spawned: 'projection_outbox' with pid 350
+2020-11-11 14:10:05,247 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:06,293 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:07,300 INFO spawned: 'projection_outbox' with pid 357
+2020-11-11 14:10:08,299 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:09,312 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:10,318 INFO spawned: 'projection_outbox' with pid 364
+2020-11-11 14:10:11,327 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:12,359 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:13,364 INFO spawned: 'projection_outbox' with pid 371
+2020-11-11 14:10:14,429 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:15,596 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:16,602 INFO spawned: 'projection_outbox' with pid 378
+2020-11-11 14:10:17,609 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:18,645 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:19,650 INFO spawned: 'projection_outbox' with pid 390
+2020-11-11 14:10:20,658 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:22,289 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:23,294 INFO spawned: 'projection_outbox' with pid 397
+2020-11-11 14:10:24,297 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:25,619 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:26,624 INFO spawned: 'projection_outbox' with pid 404
+2020-11-11 14:10:27,690 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:28,721 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:29,727 INFO spawned: 'projection_outbox' with pid 411
+2020-11-11 14:10:30,859 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:31,889 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:32,894 INFO spawned: 'projection_outbox' with pid 418
+2020-11-11 14:10:33,969 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:35,000 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:36,009 INFO spawned: 'projection_outbox' with pid 425
+2020-11-11 14:10:37,007 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:38,023 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:39,030 INFO spawned: 'projection_outbox' with pid 432
+2020-11-11 14:10:40,033 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:41,332 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:42,338 INFO spawned: 'projection_outbox' with pid 439
+2020-11-11 14:10:43,345 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:44,348 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:45,353 INFO spawned: 'projection_outbox' with pid 446
+2020-11-11 14:10:46,403 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:47,432 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:48,441 INFO spawned: 'projection_outbox' with pid 453
+2020-11-11 14:10:49,443 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:50,473 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:51,480 INFO spawned: 'projection_outbox' with pid 460
+2020-11-11 14:10:52,485 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:53,518 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:54,525 INFO spawned: 'projection_outbox' with pid 467
+2020-11-11 14:10:55,655 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:56,690 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:10:57,695 INFO spawned: 'projection_outbox' with pid 474
+2020-11-11 14:10:58,725 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:10:59,759 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:00,766 INFO spawned: 'projection_outbox' with pid 481
+2020-11-11 14:11:01,770 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:02,991 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:03,999 INFO spawned: 'projection_outbox' with pid 488
+2020-11-11 14:11:05,092 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:06,124 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:07,130 INFO spawned: 'projection_outbox' with pid 495
+2020-11-11 14:11:08,133 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:09,158 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:10,162 INFO spawned: 'projection_outbox' with pid 502
+2020-11-11 14:11:11,162 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:12,173 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:13,182 INFO spawned: 'projection_outbox' with pid 509
+2020-11-11 14:11:14,180 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:15,189 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:16,193 INFO spawned: 'projection_outbox' with pid 516
+2020-11-11 14:11:17,260 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:18,301 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:19,307 INFO spawned: 'projection_outbox' with pid 523
+2020-11-11 14:11:20,446 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:21,484 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:22,491 INFO spawned: 'projection_outbox' with pid 530
+2020-11-11 14:11:23,578 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:24,619 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:25,624 INFO spawned: 'projection_outbox' with pid 537
+2020-11-11 14:11:26,627 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:28,089 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:29,095 INFO spawned: 'projection_outbox' with pid 544
+2020-11-11 14:11:30,105 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:31,396 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:32,401 INFO spawned: 'projection_outbox' with pid 551
+2020-11-11 14:11:33,404 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:34,616 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:35,623 INFO spawned: 'projection_outbox' with pid 558
+2020-11-11 14:11:36,697 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:37,739 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:38,748 INFO spawned: 'projection_outbox' with pid 565
+2020-11-11 14:11:39,760 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:40,790 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:41,796 INFO spawned: 'projection_outbox' with pid 572
+2020-11-11 14:11:42,799 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:44,200 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:45,210 INFO spawned: 'projection_outbox' with pid 579
+2020-11-11 14:11:46,222 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:47,538 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:48,544 INFO spawned: 'projection_outbox' with pid 586
+2020-11-11 14:11:49,586 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:50,619 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:51,627 INFO spawned: 'projection_outbox' with pid 593
+2020-11-11 14:11:52,630 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:53,858 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:54,864 INFO spawned: 'projection_outbox' with pid 600
+2020-11-11 14:11:55,922 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:11:56,957 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:11:57,961 INFO spawned: 'projection_outbox' with pid 607
+2020-11-11 14:11:59,011 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:00,041 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:01,047 INFO spawned: 'projection_outbox' with pid 614
+2020-11-11 14:12:02,050 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:03,935 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:04,942 INFO spawned: 'projection_outbox' with pid 621
+2020-11-11 14:12:05,947 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:07,188 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:08,194 INFO spawned: 'projection_outbox' with pid 628
+2020-11-11 14:12:09,202 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:10,595 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:11,600 INFO spawned: 'projection_outbox' with pid 635
+2020-11-11 14:12:12,604 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:13,911 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:14,916 INFO spawned: 'projection_outbox' with pid 642
+2020-11-11 14:12:16,060 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:17,100 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:18,108 INFO spawned: 'projection_outbox' with pid 649
+2020-11-11 14:12:19,135 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:20,166 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:21,172 INFO spawned: 'projection_outbox' with pid 656
+2020-11-11 14:12:22,298 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:23,330 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:24,340 INFO spawned: 'projection_outbox' with pid 663
+2020-11-11 14:12:25,344 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:26,662 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:27,670 INFO spawned: 'projection_outbox' with pid 670
+2020-11-11 14:12:28,689 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:29,717 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:30,721 INFO spawned: 'projection_outbox' with pid 677
+2020-11-11 14:12:31,726 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:33,013 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:34,019 INFO spawned: 'projection_outbox' with pid 684
+2020-11-11 14:12:35,017 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:36,042 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:37,050 INFO spawned: 'projection_outbox' with pid 694
+2020-11-11 14:12:38,063 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:39,095 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:40,102 INFO spawned: 'projection_outbox' with pid 701
+2020-11-11 14:12:41,114 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:42,149 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:43,158 INFO spawned: 'projection_outbox' with pid 708
+2020-11-11 14:12:44,309 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:45,346 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:46,352 INFO spawned: 'projection_outbox' with pid 725
+2020-11-11 14:12:47,355 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:48,725 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:49,730 INFO spawned: 'projection_outbox' with pid 734
+2020-11-11 14:12:50,855 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:51,885 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:52,891 INFO spawned: 'projection_outbox' with pid 749
+2020-11-11 14:12:53,897 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:12:55,961 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:12:56,966 INFO spawned: 'projection_outbox' with pid 779
+2020-11-11 14:12:57,969 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:13:12,571 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:13:13,541 INFO spawned: 'projection_outbox' with pid 826
+2020-11-11 14:13:14,544 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:13:34,947 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:13:35,966 INFO spawned: 'projection_outbox' with pid 843
+2020-11-11 14:13:36,973 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:13:39,005 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:13:40,016 INFO spawned: 'projection_outbox' with pid 850
+2020-11-11 14:13:41,019 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:13:42,723 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:13:43,694 INFO spawned: 'projection_outbox' with pid 857
+2020-11-11 14:13:44,697 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:13:46,175 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:13:47,180 INFO spawned: 'projection_outbox' with pid 864
+2020-11-11 14:13:48,184 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:13:49,601 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:13:50,605 INFO spawned: 'projection_outbox' with pid 871
+2020-11-11 14:13:51,608 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:13:52,851 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:13:53,856 INFO spawned: 'projection_outbox' with pid 878
+2020-11-11 14:13:54,858 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:13:56,176 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:13:57,182 INFO spawned: 'projection_outbox' with pid 885
+2020-11-11 14:13:58,187 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:13:59,383 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:00,390 INFO spawned: 'projection_outbox' with pid 892
+2020-11-11 14:14:01,464 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:02,470 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:03,479 INFO spawned: 'projection_outbox' with pid 899
+2020-11-11 14:14:04,489 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:05,664 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:06,670 INFO spawned: 'projection_outbox' with pid 906
+2020-11-11 14:14:07,792 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:08,797 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:09,807 INFO spawned: 'projection_outbox' with pid 913
+2020-11-11 14:14:11,801 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:11,811 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:12,818 INFO spawned: 'projection_outbox' with pid 920
+2020-11-11 14:14:13,859 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:14,864 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:15,869 INFO spawned: 'projection_outbox' with pid 927
+2020-11-11 14:14:16,873 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:18,205 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:19,211 INFO spawned: 'projection_outbox' with pid 934
+2020-11-11 14:14:20,225 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:21,229 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:22,236 INFO spawned: 'projection_outbox' with pid 941
+2020-11-11 14:14:23,240 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:24,980 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:25,989 INFO spawned: 'projection_outbox' with pid 948
+2020-11-11 14:14:26,993 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:28,304 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:29,309 INFO spawned: 'projection_outbox' with pid 955
+2020-11-11 14:14:30,313 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:31,706 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:32,711 INFO spawned: 'projection_outbox' with pid 962
+2020-11-11 14:14:33,778 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:34,782 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:35,787 INFO spawned: 'projection_outbox' with pid 969
+2020-11-11 14:14:36,790 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:38,086 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:39,091 INFO spawned: 'projection_outbox' with pid 976
+2020-11-11 14:14:40,096 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:41,264 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:42,272 INFO spawned: 'projection_outbox' with pid 983
+2020-11-11 14:14:43,276 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:44,468 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:45,477 INFO spawned: 'projection_outbox' with pid 990
+2020-11-11 14:14:46,481 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:47,774 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:48,783 INFO spawned: 'projection_outbox' with pid 997
+2020-11-11 14:14:49,787 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:51,129 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:52,135 INFO spawned: 'projection_outbox' with pid 1004
+2020-11-11 14:14:53,138 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:54,601 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:55,608 INFO spawned: 'projection_outbox' with pid 1011
+2020-11-11 14:14:56,612 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:14:57,858 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:14:58,863 INFO spawned: 'projection_outbox' with pid 1018
+2020-11-11 14:14:59,867 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:01,091 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:15:02,099 INFO spawned: 'projection_outbox' with pid 1025
+2020-11-11 14:15:03,102 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:04,450 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:15:05,459 INFO spawned: 'projection_outbox' with pid 1032
+2020-11-11 14:15:06,670 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:07,678 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:15:08,688 INFO spawned: 'projection_outbox' with pid 1039
+2020-11-11 14:15:09,773 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:10,779 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:15:11,785 INFO spawned: 'projection_outbox' with pid 1046
+2020-11-11 14:15:12,882 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:13,851 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:15:14,856 INFO spawned: 'projection_outbox' with pid 1053
+2020-11-11 14:15:15,937 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:16,941 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:15:17,948 INFO spawned: 'projection_outbox' with pid 1060
+2020-11-11 14:15:18,952 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:20,146 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:15:21,151 INFO spawned: 'projection_outbox' with pid 1067
+2020-11-11 14:15:22,155 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:23,447 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:15:24,453 INFO spawned: 'projection_outbox' with pid 1074
+2020-11-11 14:15:25,456 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:26,616 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:15:27,626 INFO spawned: 'projection_outbox' with pid 1081
+2020-11-11 14:15:28,630 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:30,074 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:15:31,080 INFO spawned: 'projection_outbox' with pid 1088
+2020-11-11 14:15:32,083 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:33,354 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:15:34,363 INFO spawned: 'projection_outbox' with pid 1095
+2020-11-11 14:15:35,367 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:36,586 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:15:37,591 INFO spawned: 'projection_outbox' with pid 1102
+2020-11-11 14:15:38,711 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:39,716 INFO exited: projection_outbox (exit status 255; not expected)
+2020-11-11 14:15:40,724 INFO spawned: 'projection_outbox' with pid 1109
+2020-11-11 14:15:41,728 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:54,741 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:15:55,744 INFO spawned: 'projection_outbox' with pid 1120
+2020-11-11 14:15:56,747 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:15:58,267 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:15:59,272 INFO spawned: 'projection_outbox' with pid 1127
+2020-11-11 14:16:00,311 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:01,350 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:02,358 INFO spawned: 'projection_outbox' with pid 1134
+2020-11-11 14:16:03,360 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:04,385 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:05,390 INFO spawned: 'projection_outbox' with pid 1141
+2020-11-11 14:16:06,393 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:07,667 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:08,672 INFO spawned: 'projection_outbox' with pid 1148
+2020-11-11 14:16:09,673 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:10,690 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:11,696 INFO spawned: 'projection_outbox' with pid 1155
+2020-11-11 14:16:12,700 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:13,691 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:14,699 INFO spawned: 'projection_outbox' with pid 1162
+2020-11-11 14:16:15,816 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:16,853 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:17,858 INFO spawned: 'projection_outbox' with pid 1169
+2020-11-11 14:16:19,004 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:20,067 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:21,075 INFO spawned: 'projection_outbox' with pid 1176
+2020-11-11 14:16:22,194 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:23,228 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:24,233 INFO spawned: 'projection_outbox' with pid 1188
+2020-11-11 14:16:25,237 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:26,459 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:27,467 INFO spawned: 'projection_outbox' with pid 1196
+2020-11-11 14:16:28,464 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:29,494 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:30,501 INFO spawned: 'projection_outbox' with pid 1203
+2020-11-11 14:16:31,499 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:32,518 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:33,525 INFO spawned: 'projection_outbox' with pid 1210
+2020-11-11 14:16:34,526 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:35,551 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:36,556 INFO spawned: 'projection_outbox' with pid 1217
+2020-11-11 14:16:37,560 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:38,979 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:39,984 INFO spawned: 'projection_outbox' with pid 1224
+2020-11-11 14:16:40,999 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:42,031 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:43,037 INFO spawned: 'projection_outbox' with pid 1231
+2020-11-11 14:16:44,087 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:45,118 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:46,123 INFO spawned: 'projection_outbox' with pid 1238
+2020-11-11 14:16:47,128 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:48,396 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:49,404 INFO spawned: 'projection_outbox' with pid 1245
+2020-11-11 14:16:50,526 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:51,558 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:52,563 INFO spawned: 'projection_outbox' with pid 1252
+2020-11-11 14:16:54,558 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:54,560 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:55,563 INFO spawned: 'projection_outbox' with pid 1259
+2020-11-11 14:16:56,564 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:16:57,589 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:16:58,594 INFO spawned: 'projection_outbox' with pid 1266
+2020-11-11 14:16:59,591 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:17:00,610 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:17:01,614 INFO spawned: 'projection_outbox' with pid 1286
+2020-11-11 14:17:02,768 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:17:03,803 INFO exited: projection_outbox (exit status 1; not expected)
+2020-11-11 14:17:04,810 INFO spawned: 'projection_outbox' with pid 1296
+2020-11-11 14:17:06,576 INFO success: projection_outbox entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:17:07,655 INFO exited: projection_worker (exit status 1; not expected)
+2020-11-11 14:17:08,659 INFO spawned: 'projection_worker' with pid 1309
+2020-11-11 14:17:10,415 INFO success: projection_worker entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:17:17,563 INFO exited: projection_worker (exit status 1; not expected)
+2020-11-11 14:17:18,572 INFO spawned: 'projection_worker' with pid 1316
+2020-11-11 14:17:20,181 INFO success: projection_worker entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 14:17:27,560 INFO exited: projection_worker (exit status 1; not expected)
+2020-11-11 14:17:28,567 INFO spawned: 'projection_worker' with pid 1323

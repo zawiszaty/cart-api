@@ -29,7 +29,7 @@ final class ProductProjectionTest extends KernelTestCase
 
     protected static $class = Kernel::class;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         self::bootKernel();

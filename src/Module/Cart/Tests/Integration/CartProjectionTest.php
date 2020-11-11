@@ -27,14 +27,14 @@ final class CartProjectionTest extends KernelTestCase
 
     protected static $class = Kernel::class;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         self::bootKernel();
 
         $this->projection = self::$container->get(CartProjection::class);
-        $this->repo = self::$container->get('doctrine.orm.entity_manager')->getRepository(CartReadModel::class);
-        $this->em = self::$container->get('doctrine.orm.entity_manager');
+        $this->repo       = self::$container->get('doctrine.orm.entity_manager')->getRepository(CartReadModel::class);
+        $this->em         = self::$container->get('doctrine.orm.entity_manager');
     }
 
     public function testWhenCartCreated(): void
