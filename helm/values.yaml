@@ -1,0 +1,30 @@
+imagePullSecrets: []
+
+imagePullPolicy: Always
+
+php:
+  image:
+    repository: zawiszaty/cart-api-php
+    tag: latest
+  fpm:
+    replicaCount: 1
+    nodeSelector: {}
+    tolerations: []
+    affinity: {}
+    podAnnotations: {}
+    resources: {}
+  env: dev
+  debug: 1
+  database: 'pgsql://cart-api:cart-api@kubernetes.docker.internal:9998/cart-api'
+  rabbit_host: 'kubernetes.docker.internal'
+  rabbit_user: 'rabbit'
+  rabbit_password: 'rabbit'
+  rabbit_port: 9996
+  secret: '!ChangeMe!'
+
+ingress:
+  annotations: {}
+  tls: false
+  nginx:
+    hostName: 'nginx.example'
+    tlsSecret: 'nginx-tls'

@@ -8,8 +8,8 @@ spec:
   type: ClusterIP
   ports:
     - name: fpm
-      port: 9000
-      targetPort: 9000
+      port: 80
+      targetPort: 80
   selector:
     {{- include "matchLabels" . | nindent 4 }}
     component: fpm

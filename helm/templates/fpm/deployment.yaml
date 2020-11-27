@@ -29,12 +29,29 @@ spec:
       - name: fpm
         image: {{ .Values.php.image.repository }}:{{ .Values.php.image.tag }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
+        livenessProbe:
+          exec:
+            command:
+              - sh
+              - ./.docker/wait_for_nginx.sh
+          initialDelaySeconds: 30
+          periodSeconds: 5
+        readinessProbe:
+          exec:
+            command:
+              - sh
+              - ./.docker/wait_for_nginx.sh
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
+        envFrom:
+          - configMapRef:
+              name: {{ template "php" . }}
         {{- with .Values.php.fpm.resources }}
         resources:
         {{- toYaml . | nindent 10 }}
         {{- end }}
         ports:
-        - containerPort: 9000
+        - containerPort: 80
           name: fpm
       {{- with .Values.php.fpm.nodeSelector }}
       nodeSelector:

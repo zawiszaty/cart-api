@@ -1,0 +1,7 @@
+.git
+var
+vendor
+helm
+.terraform
+.idea
+.circleci

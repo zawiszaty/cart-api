@@ -453,3 +453,6 @@
 2020-11-11 14:17:57,598 INFO exited: projection_worker (exit status 1; not expected)
 2020-11-11 14:17:58,607 INFO spawned: 'projection_worker' with pid 1344
 2020-11-11 14:18:00,500 INFO success: projection_worker entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-11 20:29:46,140 INFO exited: projection_worker (exit status 32; not expected)
+2020-11-11 20:29:47,934 INFO spawned: 'projection_worker' with pid 1351
+2020-11-11 20:29:48,951 INFO success: projection_worker entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

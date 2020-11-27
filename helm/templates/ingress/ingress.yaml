@@ -21,6 +21,6 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: {{ template "nginx" . }}
+              serviceName: {{ template "fpm" . }}
               servicePort: 80
       host: {{ .Values.ingress.nginx.hostName | quote }}

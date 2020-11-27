@@ -45,8 +45,14 @@ app: "{{ template "name" . }}"
   {{- printf "%s-fpm" (include "fullname" .) -}}
 {{- end -}}
 
+{{- define "supervisor" -}}
+  {{- printf "%s-supervisor" (include "fullname" .) -}}
+{{- end -}}
 
 {{- define "nginx" -}}
   {{- printf "%s-nginx" (include "fullname" .) -}}
 {{- end -}}
 
+{{- define "hook" -}}
+    {{- printf "%s-hook" (include "fullname" .) -}}
+{{- end -}}

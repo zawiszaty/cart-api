@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ template "hook" . }}
+  labels:
+    {{- include "labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/hook-delete-policy": "before-hook-creation,hook-succeeded"
+    "helm.sh/hook-weight": "-4"
+spec:
+  backoffLimit: 5
+  template:
+    metadata:
+      labels:
+        {{- include "labels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      restartPolicy: Never
+      containers:
+        - name: job
+          image: "{{ .Values.php.image.repository }}:{{ .Values.php.image.tag }}"
+          command:
+            - docker-php-entrypoint
+          args:
+            - "bin/console"
+            - "doctrine:migrations:migrate"
+            - "--no-interaction"
+            - "--allow-no-migration"
+          envFrom:
+            - configMapRef:
+                name: {{ template "php" . }}
