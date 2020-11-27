@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "fpm" . }}
+  labels:
+    {{- include "labels" . | nindent 4 }}
+    component: fpm
+spec:
+  replicas: {{ .Values.php.fpm.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "matchLabels" . | nindent 6 }}
+      component: fpm
+  template:
+    metadata:
+      labels:
+        {{- include "labels" . | nindent 8 }}
+        component: fpm
+      {{- with .Values.php.fpm.podAnnotations }}
+      annotations:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+      - name: fpm
+        image: {{ .Values.php.image.repository }}:{{ .Values.php.image.tag }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        {{- with .Values.php.fpm.resources }}
+        resources:
+        {{- toYaml . | nindent 10 }}
+        {{- end }}
+        ports:
+        - containerPort: 9000
+          name: fpm
+      {{- with .Values.php.fpm.nodeSelector }}
+      nodeSelector:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.php.fpm.affinity }}
+      affinity:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.php.fpm.tolerations }}
+      tolerations:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
